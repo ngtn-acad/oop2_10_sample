@@ -1,9 +1,9 @@
 from peewee import Model, CharField, DecimalField
 from .db import db
 
-class Product(Model):
+class Customer(Model):
     name = CharField()
-    price = DecimalField()
+    numPeople = DecimalField()
 
     class Meta:
         database = db
