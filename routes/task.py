@@ -27,7 +27,8 @@ def add():
         Task.create(user=user_id, type=type, content=content)
         return redirect(url_for('task.list'))
     
-    return render_template('task_add.html')
+    users = User.select()
+    return render_template('task_add.html', users=users)
 
 
 @task_bp.route('/edit/<int:task_id>', methods=['GET', 'POST'])
@@ -43,4 +44,5 @@ def edit(task_id):
         task.save()
         return redirect(url_for('task.list'))
 
-    return render_template('task_edit.html', task=task)
+    users = User.select()
+    return render_template('task_edit.html', task=task, users=users)
