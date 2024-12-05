@@ -5,8 +5,8 @@ from .goods import Goods
 
 
 class Order(Model):
-    user = ForeignKeyField(Customer, backref="orders")
-    product = ForeignKeyField(Goods, backref="orders")
+    customer = ForeignKeyField(Customer, backref="orders")
+    goods = ForeignKeyField(Goods, backref="orders")
     order_date = DateTimeField()
 
     class Meta:
