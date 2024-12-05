@@ -1,7 +1,7 @@
 from .user import user_bp
 from .product import product_bp
 from .order import order_bp
-from .review import review_b
+from .review import review_bp
 
 # Blueprintをリストとしてまとめる
 blueprints = [
