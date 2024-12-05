@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>お店編集</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}" />
+  </head>
+  <body>
+    <h1>お店を編集</h1>
+    <ul class="breadcrumb">
+      <li><a href="{{ url_for('index') }}">HOME</a></li>
+      <li><a href="{{ url_for('restaurant.list') }}">お店一覧</a></li>
+      <li>お店編集</li>
+    </ul>
+
+    <form action="{{ url_for('restaurant.edit', restaurant_id=restaurant.id) }}" method="post">
+      <label>名前: <input type="text" name="name" value="{{ restaurant.name }}" required /></label><br />
+      <label>住所: <input type="text" name="address" value="{{ restaurant.address }}" required /></label><br />
+      <button type="submit">保存</button>
+    </form>
+  </body>
+</html>
