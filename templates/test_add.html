@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>テストデータ追加</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+
+<body>
+    <h1>新しいテストデータを追加</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('test.list') }}">テストデータ一覧</a></li>
+        <li>新規データ</li>
+    </ul>
+
+    <form action="{{ url_for('test.add') }}" method="post">
+        <label>ユーザー:
+            <select name="user_id" required>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
+
+        <label>教科:
+            <select name="test_id" required>
+                <option value="1">国語</option>
+                <option value="2">数学</option>
+                <option value="3">英語</option>
+                <option value="4">理科</option>
+                <option value="5">社会</option>
+            </select>
+        </label><br>
+
+        <label>点数:
+            <input type="number" name="score" required min="0" max="100">
+        </label><br>
+
+        <button type="submit">追加</button>
+    </form>
+</body>
+
+</html>
