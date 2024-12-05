@@ -40,5 +40,6 @@ def edit(sleep_id):
         sleep.end = request.form['end']
         sleep.save()
         return redirect(url_for('sleep.list'))
-
-    return render_template('sleep_edit.html', sleep=sleep)
+    
+    users = User.select()
+    return render_template('sleep_edit.html', sleep=sleep, users=User.select())
