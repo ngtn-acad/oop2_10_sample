@@ -28,5 +28,18 @@ def add():
 
 @food_bp.route("/edit/<int:food_id>", methods=["GET", "POST"])
 def edit(food_id):
-    pass
-
+    food = Food.get_or_none(Food.id == food_id)
+    if not food:
+        return redirect(url_for("food.list"))
+    
+    if request.method == "POST":
+        food.user = request.form["user_id"]
+        food.restaurant = request.form["restaurant_id"]
+        food.time = datetime.now()
+        food.evaluation = request.form["evaluation"]
+        
+        food.save()
+        
+        return redirect(url_for("food.list"))
+    
+    return render_template("food_edit.html", food=food, users=User.select(), restaurants=Restaurant.select())
