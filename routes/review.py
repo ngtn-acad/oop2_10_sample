@@ -5,7 +5,7 @@ from datetime import datetime
 # Blueprintの作成
 review_bp = Blueprint('reveiw', __name__, url_prefix='/reveiws')
 
-@order_bp.route('/add', methods=['GET', 'POST'])
+@review_bp.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
         user_id = request.form['user_id']
@@ -14,7 +14,7 @@ def add():
         review_comment = request.form['review_comment']
         Review.create(user=user_id, product=product_id, review_count=review_count, review_comment=review_comment)
         return redirect(url_for('review.list'))
-    
+      
     users = User.select()
     products = Product.select()
     return render_template('reviews_add.html', users=users, products=products)
