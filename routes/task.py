@@ -10,6 +10,10 @@ def list():
     tasks = Task.select()
     return render_template('task_list.html', title='業務記録', items=tasks)
 
+@task_bp.route('/task/add')
+def add():
+    User = User.select()
+    return render_template('task_add.html', title='業務追加', items=User)
 
 @task_bp.route('/add', methods=['GET', 'POST'])
 def add():
