@@ -1,6 +1,7 @@
-from .user import user_bp
+from .restaurant import restaurant_bp
 
 # Blueprintをリストとしてまとめる
 blueprints = [
-  user_bp,
+    restaurant_bp
+
 ]
