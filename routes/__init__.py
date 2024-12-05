@@ -9,7 +9,7 @@ from .reservation import reservation_bp
 # Blueprintをリストとしてまとめる
 blueprints = [
   user_bp,
-  product_bp,
+  # product_bp,
   order_bp,
   food_bp,
   drink_bp,
