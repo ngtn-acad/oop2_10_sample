@@ -18,7 +18,9 @@
             <tr>
                 <th>&nbsp;</th>
                 <th>名前</th>
-                <th>年齢</th>
+                <th>AT</th>
+                <th>HP</th>
+                <th>DF</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +28,9 @@
             <tr>
                 <td><a href="{{ url_for('user.edit', user_id=user.id) }}">編集</a></td>
                 <td>{{ user.name }}</td>
-                <td>{{ user.age }}</td>
+                <td>{{ user.at }}</td>
+                <td>{{ user.hp }}</td>
+                <td>{{ user.df }}</td>
             </tr>
             {% endfor %}
         </tbody>
