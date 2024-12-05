@@ -9,7 +9,7 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('user.list') }}">最終ステータス一覧</a></li>
+        <li><a href="{{ url_for('status.list') }}">最終ステータス一覧</a></li>
     </ul>
 
     <a href="{{ url_for('status.add') }}">新規ユーザー追加</a>
@@ -28,8 +28,8 @@
             {% for status in items %}
             <tr>
                 <td><a href="{{ url_for('status.edit', status_id=status.id) }}">編集</a></td>
-                <td>{{ status.user.name }}</td>
-                <td>{{ status.item.name }}</td>
+                <td>{{ status.name }}</td>
+                <td>{{ status.item }}</td>
                 <td>{{ status.hp }}</td>
                 <td>{{ status.at }}</td>
                 <td>{{ status.df }}</td>
