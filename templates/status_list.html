@@ -28,8 +28,8 @@
             {% for status in items %}
             <tr>
                 <td><a href="{{ url_for('status.edit', status_id=status.id) }}">編集</a></td>
-                <td>{{ status.name }}</td>
-                <td>{{ status.item }}</td>
+                <td>{{ status.name.name }}</td>
+                <td>{{ status.item.name }}</td>
                 <td>{{ status.hp }}</td>
                 <td>{{ status.at }}</td>
                 <td>{{ status.df }}</td>
