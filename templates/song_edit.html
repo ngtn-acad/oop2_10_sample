@@ -9,13 +9,13 @@
     <h1>楽曲を編集</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">楽曲一覧</a></li>
+        <li><a href="{{ url_for('song.list') }}">楽曲一覧</a></li>
         <li>楽曲編集</li>
     </ul>
 
-    <form action="{{ url_for('product.edit', product_id=product.id) }}" method="post">
-        <label>楽曲名: <input type="text" name="song" value="{{ product.name }}" required></label><br>
-        <label>歌手: <input type="text" name="artist" value="{{ product.price }}" required></label><br>
+    <form action="{{ url_for('song.edit', song_id=song.id) }}" method="post">
+        <label>楽曲名: <input type="text" name="song" value="{{ song.song }}" required></label><br>
+        <label>歌手: <input type="text" name="artist" value="{{ song.artist }}" required></label><br>
         <button type="submit">保存</button>
     </form>
 </body>
