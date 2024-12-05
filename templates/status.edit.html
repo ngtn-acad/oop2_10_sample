@@ -13,7 +13,7 @@
         <li>ユーザー編集</li>
     </ul>
 
-    <form action="{{ url_for('order.edit', order_id=order.id) }}" method="post">
+    <form action="{{ url_for('status.edit', status_id=status.id) }}" method="post">
         <label>ユーザー: 
             <select name="user_id" required>
                 {% for user in users %}
