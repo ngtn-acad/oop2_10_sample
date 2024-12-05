@@ -17,7 +17,7 @@
         <label>ユーザー: 
             <select name="user_id" required>
                 {% for user in users %}
-                    <option value="{{ user.id }}" {% if status.user.id == user.id %}selected{% endif %}>{{ user.name }}</option>
+                    <option value="{{ user.id }}" {% if status.name.id == user.id %}selected{% endif %}>{{ user.name }}</option>
                 {% endfor %}
             </select>
         </label><br>

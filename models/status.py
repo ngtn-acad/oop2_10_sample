@@ -1,9 +1,11 @@
-from peewee import Model, CharField, IntegerField
+from peewee import Model, IntegerField, ForeignKeyField
 from .db import db
+from .user import User
+from .item import Item
 
 class Status(Model):
-    name = CharField()
-    item = CharField()
+    name = ForeignKeyField(User, backref='status')
+    item = ForeignKeyField(Item, backref='status')
     hp = IntegerField()
     at = IntegerField()
     df = IntegerField()
