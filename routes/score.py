@@ -34,6 +34,7 @@ def edit(score_id):
     if request.method == 'POST':
         score.challenger = request.form['challenger_id']
         score.song = request.form['song_id']
+        score.score = request.form['score_id']
         score.save()
         return redirect(url_for('score.list'))
 

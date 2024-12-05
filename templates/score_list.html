@@ -32,8 +32,8 @@
             <a href="{{ url_for('score.edit', score_id=score.id) }}">編集</a>
           </td>
           <td>{{ score.challenger.name }}</td>
-          <td>{{ score.song.name }}</td>
-          <td>{{ score.score_date }}</td>
+          <td>{{ score.song.song }}</td>
+          <td>{{ score.score }}</td>
         </tr>
         {% endfor %}
       </tbody>
