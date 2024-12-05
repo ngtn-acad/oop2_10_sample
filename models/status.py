@@ -1,13 +1,12 @@
 from peewee import Model, CharField, IntegerField
 from .db import db
-from peewee import Model, CharField, IntegerField
-from .db import db  # dbインスタンスのインポート
-class User(Model):
+
+class Status(Model):
     name = CharField()
+    item = CharField()
     hp = IntegerField()
     at = IntegerField()
     df = IntegerField()
-
 
     class Meta:
         database = db

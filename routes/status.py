@@ -19,6 +19,7 @@ def add():
     if request.method == 'POST':
         user_id = request.form['user_id']
         product_id = request.form['product_id']
+
         # 選択されたユーザーと装備を取得
         selected_user = User.get(User.id == user_id)
         selected_item = Item.get(Item.id == product_id)
@@ -44,6 +45,7 @@ def edit(status_id):
     if request.method == 'POST':
         status.user = request.form['user_id']
         status.product = request.form['product_id']
+
         # 選択されたユーザーと装備を取得
         selected_user = User.get(User.id == status.user)
         selected_item = Item.get(Item.id == status.product)
@@ -58,4 +60,5 @@ def edit(status_id):
 
     users = User.select()
     items = Item.select()
+
     return render_template('status_edit.html', users=users, items=items, total_hp=total_hp, total_at=total_at, total_df=total_df)
