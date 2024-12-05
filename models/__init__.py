@@ -4,8 +4,9 @@ from .user import User
 from .product import Product
 from .order import Order
 from .search import Search
-from hire import Hire
-from employee import Employee
+from .hire import Hire
+from .employee import Employee
+
 
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
 MODELS = [
