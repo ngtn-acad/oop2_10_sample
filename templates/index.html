@@ -8,16 +8,15 @@
 </head>
 
 <body>
-  <h1>index</h1>
-  
+  <h1>生徒情報</h1>
   <ul>
-    <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
-    <li><a href="{{ url_for('product.list') }}">製品リスト</a></li>
-    <li><a href="{{ url_for('order.list') }}">注文リスト</a></li>
-    <li><a href="{{ url_for('test.list') }}">テストリスト</a></li>
-    <li><a href="{{ url_for('sleep.list') }}">睡眠</a></li>
+  <dev class="container">
+    <li><a href="{{ url_for('user.list') }}">生徒名簿･年齢</a></li>
+    <li><a href="{{ url_for('test.list') }}">テスト点数</a></li>
+    <li><a href="{{ url_for('sleep.list') }}">睡眠情報</a></li>
+  </dev>
   </ul>
-
+  
 </body>
 
 </html>
