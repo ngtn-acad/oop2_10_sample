@@ -1,0 +1,43 @@
+from flask import Blueprint, render_template, request, redirect, url_for
+from models import Score, Challenger, Song
+from datetime import datetime
+
+# Blueprintの作成
+score_bp = Blueprint('score', __name__, url_prefix='/scores')
+
+
+@score_bp.route('/')
+def list():
+    scores = Score.select()
+    return render_template('score_list.html', title='スコア一覧', items=scores)
+
+
+@score_bp.route('/add', methods=['GET', 'POST'])
+def add():
+    if request.method == 'POST':
+        challenger_id = request.form['challenger_id']
+        song_id = request.form['song_id']
+        score_num = datetime.now()
+        Score.create(challenger=challenger_id, song=song_id, score=score_num)
+        return redirect(url_for('score.list'))
+    
+    challengers = Challenger.select()
+    songs = Song.select()
+    return render_template('score_add.html', challengers=challengers, songs=songs)
+
+
+@score_bp.route('/edit/<int:score_id>', methods=['GET', 'POST'])
+def edit(score_id):
+    score = Score.get_or_none(Score.id == score_id)
+    if not score:
+        return redirect(url_for('score.list'))
+
+    if request.method == 'POST':
+        score.challenger = request.form['challenger_id']
+        score.song = request.form['song_id']
+        score.save()
+        return redirect(url_for('score.list'))
+
+    challengers = Challenger.select()
+    songs = Song.select()
+    return render_template('score_edit.html', score=score, challengers=challengers, songs=songs)
