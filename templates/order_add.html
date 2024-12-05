@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
 
     </ul>
-    
+</head>
+<body>
+    <h1>新規貸出</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('order.list') }}">貸し出し一覧</a></li>
+        <li>新規貸出</li>
+    </ul>
+
     <form action="{{ url_for('order.add') }}" method="post">
         <label>氏名: 
             <select name="user_id" required>
