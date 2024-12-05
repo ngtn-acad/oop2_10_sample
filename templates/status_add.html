@@ -23,7 +23,7 @@
         </label><br>
         <label>装備名: 
             <select name="item_id" required>
-                {% for product in products %}
+                {% for item in items %}
                     <option value="{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
