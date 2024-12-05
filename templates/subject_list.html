@@ -12,7 +12,7 @@
         <li><a href="{{ url_for('product.list') }}">科目名リスト</a></li>
 
     </ul>
-    <a href="{{ url_for('product.add') }}">科目名</a>
+    <a href="{{ url_for('subject.add') }}">科目名</a>
     <table>
         <thead>
             <tr>
@@ -24,9 +24,9 @@
         <tbody>
             {% for product in items %}
             <tr>
-                <td><a href="{{ url_for('product.edit', product_id=product.id) }}">編集</a></td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td><a href="{{ url_for('subject.edit', subject_id=subject.id) }}">編集</a></td>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.price }}</td>
             </tr>
             {% endfor %}
         </tbody>
