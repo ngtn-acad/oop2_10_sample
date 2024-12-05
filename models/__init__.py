@@ -7,6 +7,7 @@ from .search import Search
 from .hire import Hire
 from .employee import Employee
 
+
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
 MODELS = [
     User,
