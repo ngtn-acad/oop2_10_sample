@@ -76,4 +76,4 @@ def edit(status_id):
     users = total_user
     items = total_item 
 
-    return render_template('status_edit.html', users=users, items=items, total_hp=total_hp, total_at=total_at, total_df=total_df)
+    return render_template('status_edit.html',status=status, users=users, items=items)
