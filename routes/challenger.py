@@ -36,6 +36,7 @@ def edit(challenger_id):
     if request.method == 'POST':
         challenger.name = request.form['name']
         challenger.age = request.form['age']
+        challenger.gender = request.form['gender']
         challenger.save()
         return redirect(url_for('challenger.list'))
 
