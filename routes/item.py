@@ -34,7 +34,7 @@ def edit(item_id):
 
     if request.method == 'POST':
         item.name = request.form['name']
-        item.hitpoint = request.form['price']
+        item.hitpoint = request.form['hitpoint']
         item.attack = request.form['attack']
         item.defence = request.form['defence']
         item.save()
