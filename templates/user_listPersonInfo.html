@@ -29,7 +29,10 @@
         {% for user in items %}
         <tr>
           <td>
-            <a href="{{ url_for('user.edit', user_id=user.id) }}">編集</a>
+            <a
+              href="{{ url_for('user.edit', user_id=user.id,contact_id=contact.id if contact else 0) }}"
+              >編集</a
+            >
           </td>
           <td>{{ user.name }}</td>
           <td>{{ user.age }}</td>
