@@ -12,11 +12,11 @@
     <h1>新しい作業を追加</h1>
     <ul class="breadcrumb">
       <li><a href="{{ url_for('index') }}">HOME</a></li>
-      <li><a href="{{ url_for('record.list') }}">作業一覧</a></li>
+      <li><a href="{{ url_for('task.list') }}">作業一覧</a></li>
       <li>新しい作業</li>
     </ul>
 
-    <form action="{{ url_for('record.add') }}" method="post">
+    <form action="{{ url_for('task.add') }}" method="post">
       <label
         >ユーザー:
         <select name="user_id" required>
