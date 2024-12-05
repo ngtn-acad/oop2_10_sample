@@ -39,15 +39,16 @@ def add():
 def edit(article_id):
     article = Article.get_or_none(Article.id == article_id)
     if not article:
-        return redirect(url_for('product.list'))
+        return redirect(url_for('article.list'))
 
     if request.method == 'POST':
-        article.user = request.form['title']
+        article.title = request.form['title']
         article.tag = request.form['tag_id']
         article.save()
-        return redirect(url_for('product.list'))
+        return redirect(url_for('article.list'))
     
     #users = User.select()
     #articles = Article.select()
+    tags = Tag.select()
 
-    return render_template('product_edit.html', article=article)
+    return render_template('product_edit.html', article=article, tags=tags)

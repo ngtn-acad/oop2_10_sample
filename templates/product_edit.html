@@ -9,13 +9,17 @@
     <h1>記事を編集</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">記事一覧</a></li>
+        <li><a href="{{ url_for('article.list') }}">記事一覧</a></li>
         <li>記事編集</li>
     </ul>
 
-    <form action="{{ url_for('product.edit', product_id=product.id) }}" method="post">
-        <label>タイトル: <input type="text" name="name" value="{{ product.name }}" required></label><br>
-        <label>タグ: <input type="number" step="1" name="price" value="{{ product.price }}" required></label><br>
+    <form action="{{ url_for('article.edit', article_id=article.id) }}" method="post">
+        <label>タイトル: <input type="text" name="title" value="{{ article.name }}" required></label><br>
+        <label>タグ: <select name="tag_id" required>
+            {% for tag in tags %}
+                <option value="{{ tag.id }}">{{ tag.word }}</option>
+            {% endfor %}
+        </select></label><br>
         <button type="submit">保存</button>
     </form>
 </body>
