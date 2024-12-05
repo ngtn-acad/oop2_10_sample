@@ -16,6 +16,7 @@
     <form action="{{ url_for('goods.edit', goods_id=goods.id) }}" method="post">
         <label>商品名:  <input type="text" name="name" value="{{ goods.name }}" required></label><br>
         <label>価格:（税込） <input type="number" step="1" name="price" value="{{ goods.price }}" required></label><br>
+        <label>カテゴリ（整数値）<input type="number" step="1" name="categori" value="{{ goods.categori }}" required></label><br>
         <button type="submit">保存</button>
     </form>
 </body>

@@ -19,6 +19,7 @@
                 <th>&nbsp;</th>
                 <th>商品名</th>
                 <th>価格（税込）</th>
+                <th>カテゴリ（整数値）</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                 <td><a href="{{ url_for('goods.edit', goods_id=goods.id) }}">編集</a></td>
                 <td>{{ goods.name }}</td>
                 <td>{{ goods.price }}</td>
+                <td>{{ goods.categori }}</td>
             </tr>
             {% endfor %}
         </tbody>
