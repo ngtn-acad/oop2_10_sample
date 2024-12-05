@@ -28,5 +28,6 @@ def initialize_database():
     
     for tag in tagArray:
         Tag.create(word=tag)
+
         
     
