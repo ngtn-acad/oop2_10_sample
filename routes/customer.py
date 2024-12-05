@@ -7,8 +7,11 @@ customer_bp = Blueprint('customer', __name__, url_prefix='/customer')
 
 @customer_bp.route('/')
 def list():
+   
+    # データ取得
     customers = Customer.select()
-    return render_template('customer_list.html', title='製品一覧', items=customers)
+
+    return render_template('custoer_list.html', title='客リスト', items=customers)
 
 
 @customer_bp.route('/add', methods=['GET', 'POST'])
