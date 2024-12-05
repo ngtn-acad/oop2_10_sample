@@ -9,16 +9,16 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">製品一覧</a></li>
+        <li><a href="{{ url_for('product.list') }}">科目名リスト</a></li>
 
     </ul>
-    <a href="{{ url_for('product.add') }}">新規製品追加</a>
+    <a href="{{ url_for('product.add') }}">科目名</a>
     <table>
         <thead>
             <tr>
                 <th>&nbsp;</th>
-                <th>製品名</th>
-                <th>価格</th>
+                <th>科目名</th>
+                <th>単位数</th>
             </tr>
         </thead>
         <tbody>
