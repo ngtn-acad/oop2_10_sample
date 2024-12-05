@@ -17,8 +17,9 @@ def add():
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
         name = request.form['name']
-        price = request.form['price']
-        Product.create(name=name, price=price)
+        attribute = request.form['attribute']
+        atackpower = request.form['atackpower']
+        Product.create(name=name, attribute=attribute,atackpower=atackpower)
         return redirect(url_for('product.list'))
     
     return render_template('product_add.html')

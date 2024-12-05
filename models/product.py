@@ -3,7 +3,8 @@ from .db import db
 
 class Product(Model):
     name = CharField()
-    price = DecimalField()
+    attribute = CharField()
+    atackpower = DecimalField()
 
     class Meta:
         database = db
