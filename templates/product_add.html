@@ -6,13 +6,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 <body>
-    <h1>新刊を追加</h1>
-    <ul class="breadcrumb">
-        <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">蔵書一覧</a></li>
-        <li>新刊</li>
-    </ul>
-
     <form action="{{ url_for('product.add') }}" method="post">
         <label>書名: <input type="text" name="name" required></label><br>
         <label>著者: <input type="number" step="1" name="price" required></label><br>

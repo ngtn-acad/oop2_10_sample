@@ -2,15 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>新刊追加</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
-</head>
-<body>
-    <h1>ユーザーを追加</h1>
-    <ul class="breadcrumb">
-        <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('order.list') }}">氏名一覧</a></li>
-        <li>新規登録</li>
+
     </ul>
     
     <form action="{{ url_for('order.add') }}" method="post">
@@ -21,7 +13,7 @@
                 {% endfor %}
             </select>
         </label><br>
-        <label>学籍番号: 
+
             <select name="product_id" required>
                 {% for product in products %}
                     <option value="{{ product.id }}">{{ product.name }}</option>

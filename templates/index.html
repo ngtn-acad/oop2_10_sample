@@ -2,15 +2,28 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>データ一覧</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>図書館</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 <body>
-    <h1>index</h1>
-    <ul>
-      <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
-      <li><a href="{{ url_for('product.list') }}">製品リスト</a></li>
-      <li><a href="{{ url_for('order.list') }}">注文リスト</a></li>
-    </ul>
+    <header>
+        <h1 class="title">図書館システム</h1>
+    </header>
+
+    <main class="container">
+        <nav class="navigation">
+            <ul class="menu">
+                <li><a href="{{ url_for('user.list') }}">ユーザー情報</a></li>
+                <li><a href="{{ url_for('product.list') }}">蔵書一覧</a></li>
+                <li><a href="{{ url_for('order.list') }}">貸出中</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <p>© 2024 図書館システム</p>
+    </footer>
 </body>
 </html>
+
