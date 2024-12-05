@@ -1,9 +1,9 @@
-from peewee import Model, CharField, DecimalField
+from peewee import Model, CharField
 from .db import db
 
 class Song(Model):
-    name = CharField()
-    price = DecimalField()
+    song = CharField()
+    artist = CharField()
 
     class Meta:
         database = db
