@@ -16,7 +16,7 @@
     <form action="{{ url_for('order.add') }}" method="post">
         <label>テーブル番号: 
             <select name="customer_id" required>
-                {% for customers in customer %}
+                {% for customer in customers %}
                     <option value="{{ customer_id }}">{{ customers.table }}</option>
                 {% endfor %}
             </select>
