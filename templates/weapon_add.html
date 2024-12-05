@@ -9,11 +9,11 @@
     <h1>新しい武器を追加</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">武器一覧</a></li>
+        <li><a href="{{ url_for('weapon.list') }}">武器一覧</a></li>
         <li>新規武器</li>
     </ul>
 
-    <form action="{{ url_for('product.add') }}" method="post">
+    <form action="{{ url_for('weapon.add') }}" method="post">
 
         <label>武器名: <input type="text" name="name" required></label><br>
         
