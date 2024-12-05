@@ -16,20 +16,23 @@ def list():
 
 @status_bp.route('/add', methods=['GET', 'POST'])
 def add():
+    total_hp = 0
+    total_at = 0
+    total_df = 0
     if request.method == 'POST':
         user_id = request.form['user_id']
-        product_id = request.form['product_id']
+        item_id = request.form['item_id']
 
         # 選択されたユーザーと装備を取得
         selected_user = User.get(User.id == user_id)
-        selected_item = Item.get(Item.id == product_id)
+        selected_item = Item.get(Item.id == item_id)
         
         # ユーザーのHPと装備のHPを計算または表示
         total_hp = int(selected_user.hp + selected_item.hitpoint)
         total_at = int(selected_user.at + selected_item.attack)
         total_df = int(selected_user.df + selected_item.defence)
 
-        Status.create(user=user_id, product=product_id, hp=total_hp, at=total_at, df=total_df)
+        Status.create(user=user_id, item=item_id, hp=total_hp, at=total_at, df=total_df)
         return redirect(url_for('status.list'))
     
     users = User.select()
@@ -42,9 +45,13 @@ def edit(status_id):
     if not status:
         return redirect(url_for('status.list'))
 
+
+    total_hp = 0
+    total_at = 0
+    total_df = 0
     if request.method == 'POST':
         status.user = request.form['user_id']
-        status.product = request.form['product_id']
+        status.item = request.form['item_id']
 
         # 選択されたユーザーと装備を取得
         selected_user = User.get(User.id == status.user)
