@@ -17,8 +17,8 @@
         <thead>
             <tr>
                 <th>&nbsp;</th>
-                <th>ユーザー</th>
-                <th>製品</th>
+                <th>顧客</th>
+                <th>寿司</th>
                 <th>注文日</th>
             </tr>
         </thead>
@@ -26,8 +26,8 @@
             {% for order in items %}
             <tr>
                 <td><a href="{{ url_for('order.edit', order_id=order.id) }}">編集</a></td>
-                <td>{{ order.user.name }}</td>
-                <td>{{ order.product.name }}</td>
+                <td>{{ order.customer.table }}</td>
+                <td>{{ order.goods.name }}</td>
                 <td>{{ order.order_date }}</td>
             </tr>
             {% endfor %}
