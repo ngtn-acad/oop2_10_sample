@@ -3,7 +3,7 @@ from .db import db
 
 class User(Model):
     name = CharField()
-    student_id = IntegerField()
+    student_id = CharField()
 
     class Meta:
         database = db
