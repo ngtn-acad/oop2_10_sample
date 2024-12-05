@@ -1,5 +1,5 @@
 from .user import user_bp
-from .product import product_bp
+from .customer import customer_bp
 from .order import order_bp
 from .food import food_bp
 from .drink import drink_bp

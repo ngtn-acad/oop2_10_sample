@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 
+=======
+<head>
+    <meta charset="UTF-8">
+    <title>客一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
 <body>
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
@@ -17,4 +23,28 @@
 
 </body>
 
+</html>
+        <li><a href="{{ url_for('customer.list') }}">製品一覧</a></li>
+
+    </ul>
+    <a href="{{ url_for('customer.add') }}">新規客追加</a>
+    <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>名前</th>
+                <th>人数</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in items %}
+            <tr>
+                <td><a href="{{ url_for('customer.edit', customer_id=customer.id) }}">編集</a></td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.numPeople }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
 </html>
