@@ -1,43 +1,44 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Order, User, Product
+from models import User, Product , Role
 from datetime import datetime
 
 # Blueprintの作成
-order_bp = Blueprint('order', __name__, url_prefix='/orders')
+role_bp = Blueprint('role', __name__, url_prefix='/roles')
 
 
-@order_bp.route('/')
+@role_bp.route('/')
 def list():
-    orders = Order.select()
-    return render_template('order_list.html', title='注文一覧', items=orders)
+    roles = Role.select()
+    print(roles)
+    return render_template('order_list.html', title='飼育表', items=roles)#htmlファイル名を変える
 
 
-@order_bp.route('/add', methods=['GET', 'POST'])
+@role_bp.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        user_id = request.form['user_id']
-        product_id = request.form['product_id']
-        order_date = datetime.now()
-        Order.create(user=user_id, product=product_id, order_date=order_date)
-        return redirect(url_for('order.list'))
+        keeper_id = request.form['keeper_id']
+        animal_id = request.form['animal_name']
+        regist_date = datetime.now()
+        Role.create(keeper=keeper_id, animal=animal_id, regist_date=regist_date)
+        return redirect(url_for('role.list'))
     
-    users = User.select()
-    products = Product.select()
-    return render_template('order_add.html', users=users, products=products)
+    keepers = User.select()
+    animals = Product.select()
+    return render_template('order_add.html', keepers=keepers, animals=animals)
 
 
-@order_bp.route('/edit/<int:order_id>', methods=['GET', 'POST'])
-def edit(order_id):
-    order = Order.get_or_none(Order.id == order_id)
-    if not order:
-        return redirect(url_for('order.list'))
+@role_bp.route('/edit/<int:role_id>', methods=['GET', 'POST'])
+def edit(role_id):
+    role = Role.get_or_none(Role.id == role_id)
+    if not role:
+        return redirect(url_for('role.list'))
 
     if request.method == 'POST':
-        order.user = request.form['user_id']
-        order.product = request.form['product_id']
-        order.save()
-        return redirect(url_for('order.list'))
+        role.user = request.form['keeper_id']
+        role.product = request.form['animal_id']
+        role.save()
+        return redirect(url_for('role.list'))
 
     users = User.select()
     products = Product.select()
-    return render_template('order_edit.html', order=order, users=users, products=products)
+    return render_template('order_edit.html', role=role, users=users, products=products)

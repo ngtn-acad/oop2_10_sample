@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for order in items %}
+            {% for role in items %}
             <tr>
                 <td><a href="{{ url_for('role.edit', role_id=role.id) }}">編集</a></td>
                 <td>{{ role.user.name }}</td>
