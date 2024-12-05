@@ -4,7 +4,7 @@ from .db import db
 class Weapon(Model):
     name = CharField()
     attribute = CharField()
-    atackpower = DecimalField()
+    attackpower = DecimalField()
 
     class Meta:
         database = db
