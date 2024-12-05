@@ -2,8 +2,9 @@ from peewee import Model, CharField, DecimalField
 from .db import db
 
 class Product(Model):
+    kind = CharField()
     name = CharField()
-    price = DecimalField()
+    food = CharField()
 
     class Meta:
         database = db
