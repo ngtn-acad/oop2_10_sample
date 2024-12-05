@@ -11,16 +11,15 @@ def list():
     # データ取得
     customer = Customer.select()
 
-    return render_template('customer_list.html', title='ユーザー一覧', items=customer)
+    return render_template('customer_list.html', title='客一覧', customers=customer)
 
 
 @customer_bp.route('/add', methods=['GET', 'POST'])
 def add():
     
     if request.method == 'POST':
-        name = request.form['name']
-        age = request.form['age']
-        Customer.create(name=name, age=age)
+        table = request.form['table']
+        Customer.create(table=table)
         return redirect(url_for('customer.list'))
     
     return render_template('customer_add.html')
@@ -33,8 +32,7 @@ def edit(customer_id):
         return redirect(url_for('customer.list'))
 
     if request.method == 'POST':
-        customer.name = request.form['name']
-        customer.age = request.form['age']
+        customer.table = request.form['table']
         customer.save()
         return redirect(url_for('customer.list'))
 
