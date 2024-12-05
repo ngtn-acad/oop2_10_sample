@@ -9,11 +9,11 @@
     <h1>新しい装備を追加</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">装備一覧</a></li>
+        <li><a href="{{ url_for('item.list') }}">装備一覧</a></li>
         <li>新規装備</li>
     </ul>
 
-    <form action="{{ url_for('product.add') }}" method="post">
+    <form action="{{ url_for('item.add') }}" method="post">
         <label>装備名: <input type="text" name="name" required></label><br>
         <label>HP: <input type="number" step="1" name="hitpoint" required></label><br>
         <label>AT: <input type="number" step="1" name="attack" required></label><br>
