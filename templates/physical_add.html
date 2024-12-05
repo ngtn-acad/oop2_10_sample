@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アンケート追加</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>アンケートを追加</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('order.list') }}">アンケート一覧</a></li>
+        <li>新規アンケート</li>
+    </ul>
+    
+    <form action="{{ url_for('order.add') }}" method="post">
+        <label>ユーザー: 
+            <select name="user_id" required>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
+        <label>体温: <input type="number" step="0.1" name="body_temperature" required></label><br>
+        <label>体調不良があるか: <input type="checkbox" name="check"></label><br>
+        <label>体調不良の内容: <input type="text" name="content"></label><br>
+        <button type="submit">追加</button>
+    </form>
+</body>
+</html>
