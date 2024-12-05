@@ -7,4 +7,5 @@ blueprints = [
   user_bp,
   customer_bp,
   order_bp
+  customer_bp
 ]
