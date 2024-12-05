@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>食べたもの追加</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>新しい食べたものを追加</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('food.list') }}">食べたもの一覧</a></li>
+        <li>新規食べたもの</li>
+    </ul>
+    
+    <form action="{{ url_for('food.add') }}" method="post">
+        <label>ユーザー: 
+            <select name="user_id" required>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
+        <label>レストラン: 
+            <select name="restaurant_id" required>
+                {% for restaurant in restaurants %}
+                    <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
+        <label>評価: 
+            <select name="evaluation" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label><br>
+        <button type="submit">追加</button>
+    </form>
+</body>
+</html>
+
