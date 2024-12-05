@@ -16,8 +16,6 @@ def list():
 
 @status_bp.route('/add', methods=['GET', 'POST'])
 def add():
-    total_name = ""
-    total_item = ""
     total_hp = 0
     total_at = 0
     total_df = 0
