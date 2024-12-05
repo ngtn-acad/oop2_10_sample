@@ -21,7 +21,7 @@ def add():
         name = request.form['name']
         age = request.form['age']
         gender = request.form['gender']
-        Challenger.create(name=name, age=age,gender=gender)
+        Challenger.create(name=name, age=age, gender=gender)
         return redirect(url_for('challenger.list'))
     
     return render_template('challenger_add.html')
