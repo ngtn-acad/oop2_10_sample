@@ -1,17 +1,17 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Product
+from models import weapon
 
 # Blueprintの作成
-product_bp = Blueprint('product', __name__, url_prefix='/products')
+weapon_bp = Blueprint('weapon', __name__, url_prefix='/weapons')
 
 
-@product_bp.route('/')
+@weapon_bp.route('/')
 def list():
-    products = Product.select()
-    return render_template('product_list.html', title='製品一覧', items=products)
+    weapons = weapon.select()
+    return render_template('weapon_list.html', title='製品一覧', items=weapons)
 
 
-@product_bp.route('/add', methods=['GET', 'POST'])
+@weapon_bp.route('/add', methods=['GET', 'POST'])
 def add():
     
     # POSTで送られてきたデータは登録
@@ -19,22 +19,22 @@ def add():
         name = request.form['name']
         attribute = request.form['attribute']
         atackpower = request.form['atackpower']
-        Product.create(name=name, attribute=attribute,atackpower=atackpower)
-        return redirect(url_for('product.list'))
+        weapon.create(name=name, attribute=attribute,atackpower=atackpower)
+        return redirect(url_for('weapon.list'))
     
-    return render_template('product_add.html')
+    return render_template('weapon_add.html')
 
 
-@product_bp.route('/edit/<int:product_id>', methods=['GET', 'POST'])
-def edit(product_id):
-    product = Product.get_or_none(Product.id == product_id)
-    if not product:
-        return redirect(url_for('product.list'))
+@weapon_bp.route('/edit/<int:weapon_id>', methods=['GET', 'POST'])
+def edit(weapon_id):
+    weapon = weapon.get_or_none(weapon.id == weapon_id)
+    if not weapon:
+        return redirect(url_for('weapon.list'))
 
     if request.method == 'POST':
-        product.name = request.form['name']
-        product.price = request.form['price']
-        product.save()
-        return redirect(url_for('product.list'))
+        weapon.name = request.form['name']
+        weapon.price = request.form['price']
+        weapon.save()
+        return redirect(url_for('weapon.list'))
 
-    return render_template('product_edit.html', product=product)
+    return render_template('weapon_edit.html', weapon=weapon)
