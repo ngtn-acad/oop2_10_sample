@@ -20,7 +20,7 @@ def add():
         order_date = datetime.now()
         return_date = datetime.date()+14
         print(order_date)
-        Order.create(user=user_id, product=product_id, order_date=order_date)
+        Order.create(user=user_id, product=product_id, order_date=order_date, return_date=return_date)
         return redirect(url_for('order.list'))
     
     users = User.select()
