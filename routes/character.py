@@ -36,6 +36,6 @@ def edit(user_id):
         user.name = request.form['name']
         user.gender = request.form['gender']
         user.save()
-        return redirect(url_for('user.list'))
+        return redirect(url_for('character.list'))
 
     return render_template('user_edit.html', user=user)
