@@ -40,6 +40,16 @@ def edit(user_id):
 
     return render_template('user_edit.html', user=user)
 
+@user_bp.route('search_name', methods=['GET', 'POST'])
+def search():
+    search_name = request.args.get('search_name', '') 
+    users = []
+
+    if search_name:
+        users = User.select().where(User.name == search_name)
+
+    return render_template('user_search.html', title='ユーザー名検索', items=users, search_name=search_name)
+
 @user_bp.route('/delete/<int:user_id>', methods=['GET', 'POST'])
 def delete(user_id):
     user = User.get_or_none(User.id == user_id)
@@ -52,3 +62,4 @@ def delete(user_id):
         return redirect(url_for('user.list'))
 
     return render_template('user_delete.html', user=user)
+

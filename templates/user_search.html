@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('user.search') }}">検索一覧</a></li>
+    </ul>
+
+    <form method="get" action="{{ url_for('user.search') }}">
+        <input type="text" name="search_name" value="{{ search_name }}" placeholder="名前を検索">
+        <button type="submit">検索</button>
+    </form>
+
+    {% if items %}
+    <table>
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>年齢</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in items %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>検索結果が見つかりませんでした。</p>
+    {% endif %}
+</body>
+</html>
