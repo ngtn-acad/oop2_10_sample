@@ -33,13 +33,13 @@ def edit(order_id):
         return redirect(url_for("order.list"))
 
     if request.method == "POST":
-        order.user = request.form["user_id"]
-        order.product = request.form["product_id"]
+        order.custmer = request.form["customer_id"]
+        order.good = request.form["good_id"]
         order.save()
         return redirect(url_for("order.list"))
 
-    users = Customer.select()
-    products = Goods.select()
+    custmers = Customer.select()
+    goods = Goods.select()
     return render_template(
-        "order_edit.html", order=order, users=users, products=products
+        "order_edit.html", order=order, custmers=custmers, goods=goods
     )
