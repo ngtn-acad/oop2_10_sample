@@ -4,8 +4,8 @@ from .user import User
 from .subject import Subject
 
 class Regist(Model):
-    user = ForeignKeyField(User, backref='orders')
-    subject = ForeignKeyField(Subject, backref='orders')
+    user = ForeignKeyField(User, backref='regists')
+    subject = ForeignKeyField(Subject, backref='regists')
     regist_date = DateTimeField()
 
     class Meta:

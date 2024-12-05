@@ -9,22 +9,22 @@
     <h1>履修を編集</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('regist.list') }}">注文一覧</a></li>
-        <li>注文の編集</li>
+        <li><a href="{{ url_for('regist.list') }}">履修リスト</a></li>
+        <li>履修の編集</li>
     </ul>
 
     <form action="{{ url_for('regist.edit', regist_id=regist.id) }}" method="post">
         <label>ユーザー: 
             <select name="user_id" required>
                 {% for user in users %}
-                    <option value="{{ user.id }}" {% if order.user.id == user.id %}selected{% endif %}>{{ user.name }}</option>
+                    <option value="{{ user.id }}" {% if regist.user.id == user.id %}selected{% endif %}>{{ user.name }}</option>
                 {% endfor %}
             </select>
         </label><br>
         <label>科目: 
             <select name="subject_id" required>
                 {% for subject in subjects %}
-                    <option value="{{ subject.id }}" {% if order.subject.id == subject.id %}selected{% endif %}>{{ subject.name }}</option>
+                    <option value="{{ subject.id }}" {% if regist.subject.id == subject.id %}selected{% endif %}>{{ subject.name }}</option>
                 {% endfor %}
             </select>
         </label><br>
