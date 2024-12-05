@@ -9,11 +9,11 @@
     <h1>新しい注文を追加</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('order.list') }}">注文一覧</a></li>
+        <li><a href="{{ url_for('role.list') }}">注文一覧</a></li>
         <li>新規注文</li>
     </ul>
     
-    <form action="{{ url_for('order.add') }}" method="post">
+    <form action="{{ url_for('role.add') }}" method="post">
         <label>ユーザー: 
             <select name="user_id" required>
                 {% for user in users %}
