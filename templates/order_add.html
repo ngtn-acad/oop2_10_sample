@@ -16,15 +16,15 @@
     <form action="{{ url_for('order.add') }}" method="post">
         <label>テーブル番号: 
             <select name="customer_id" required>
-                {% for customer in customer %}
-                    <option value="{{ customer_id }}">{{ customer.table }}</option>
+                {% for customers in customer %}
+                    <option value="{{ customer_id }}">{{ customers.table }}</option>
                 {% endfor %}
             </select>
         </label><br>
         <label>寿司: 
             <select name="goods_id" required>
-                {% for goods in goods %}
-                    <option value="{{ goods_id }}">{{ goods.name }}</option>
+                {% for good in goods %}
+                    <option value="{{ goods_id }}">{{ good.name }}</option>
                 {% endfor %}
             </select>
         </label><br>
