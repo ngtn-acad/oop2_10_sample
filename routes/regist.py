@@ -9,7 +9,7 @@ regist_bp = Blueprint('regist', __name__, url_prefix='/regist')
 @regist_bp.route('/')
 def list():
     regist = Regist.select()
-    return render_template('order_list.html', title='注文一覧', items=regist)
+    return render_template('regist_list.html', title='注文一覧', regists=regist)
 
 
 @regist_bp.route('/add', methods=['GET', 'POST'])
@@ -23,10 +23,10 @@ def add():
     
     users = User.select()
     subjects = Subject.select()
-    return render_template('order_add.html', users=users, subjects=subjects)
+    return render_template('regist_add.html', users=users, subjects=subjects)
 
 
-@regist_bp.route('/edit/<int:order_id>', methods=['GET', 'POST'])
+@regist_bp.route('/edit/<int:regist_id>', methods=['GET', 'POST'])
 def edit(regist_id):
     regist = Regist.get_or_none(Regist.id == regist_id)
     if not regist:
@@ -36,8 +36,8 @@ def edit(regist_id):
         regist.user = request.form['user_id']
         regist.subject = request.form['subject_id']
         regist.save()
-        return redirect(url_for('order.list'))
+        return redirect(url_for('regist.list'))
 
     users = User.select()
     subjects = Subject.select()
-    return render_template('order_edit.html', order=regist, users=users, subjects=subjects)
+    return render_template('regist_edit.html', regist=regist, users=users, subjects=subjects)

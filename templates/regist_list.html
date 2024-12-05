@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for order in items %}
+            {% for regist in regists %}
             <tr>
                 <td><a href="{{ url_for('regist.edit', regist_id=regist.id) }}">編集</a></td>
                 <td>{{ regist.user.name }}</td>
