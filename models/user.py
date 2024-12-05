@@ -3,7 +3,9 @@ from .db import db
 
 class User(Model):
     name = CharField()
-    age = IntegerField()
+    studentNumber = CharField()
+    gender = CharField()
+    
 
     class Meta:
         database = db
