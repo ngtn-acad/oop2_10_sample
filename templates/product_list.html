@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>データ一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
+
 <body>
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
@@ -18,7 +20,7 @@
             <tr>
                 <th>&nbsp;</th>
                 <th>書名</th>
-                <th>残書数</th>
+                <th>著者名</th>
             </tr>
         </thead>
         <tbody>
@@ -26,10 +28,11 @@
             <tr>
                 <td><a href="{{ url_for('product.edit', product_id=product.id) }}">編集</a></td>
                 <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td>{{ product.author }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </body>
+
 </html>

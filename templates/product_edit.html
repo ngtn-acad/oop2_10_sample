@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>蔵書編集</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
+
 <body>
     <h1>蔵書を編集</h1>
     <ul class="breadcrumb">
@@ -15,8 +17,9 @@
 
     <form action="{{ url_for('product.edit', product_id=product.id) }}" method="post">
         <label>書名: <input type="text" name="name" value="{{ product.name }}" required></label><br>
-        <label>在書数: <input type="number" step="1" name="price" value="{{ product.price }}" required></label><br>
+        <label>著者: <input type="text" name="author" value="{{product.author}}" required></label><br>
         <button type="submit">保存</button>
     </form>
 </body>
+
 </html>

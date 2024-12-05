@@ -17,8 +17,8 @@ def add():
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
         name = request.form['name']
-        price = request.form['price']
-        Product.create(name=name, price=price)
+        author = request.form['author']
+        Product.create(name=name,author= author)
         return redirect(url_for('product.list'))
     
     return render_template('product_add.html')
@@ -32,8 +32,8 @@ def edit(product_id):
 
     if request.method == 'POST':
         product.name = request.form['name']
-        product.price = request.form['price']
-        product.save()
+        product.author = request.form['author']
+        product.save()# 編集されたデータの更新
         return redirect(url_for('product.list'))
 
     return render_template('product_edit.html', product=product)
