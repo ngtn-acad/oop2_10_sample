@@ -1,41 +1,41 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Product
+from models import Goods
 
 # Blueprintの作成
-product_bp = Blueprint('goods', __name__, url_prefix='/goods')
+goods_bp = Blueprint("goods", __name__, url_prefix="/goods")
 
 
-@product_bp.route('/')
+@goods_bp.route("/")
 def list():
-    products = Product.select()
-    return render_template('goods_list.html', title='商品一覧', items=products)
+    goods = Goods.select()
+    return render_template("goods_list.html", title="商品一覧", items=goods)
 
 
-@product_bp.route('/add', methods=['GET', 'POST'])
+@goods_bp.route("/add", methods=["GET", "POST"])
 def add():
-    
+
     # POSTで送られてきたデータは登録
-    if request.method == 'POST':
-        name = request.form['name']
-        price = request.form['price']
-        categori=request.form['categori']
-        Product.create(name=name, price=price,categori=categori)
-        return redirect(url_for('goods.list'))
-    
-    return render_template('goods_add.html')
+    if request.method == "POST":
+        name = request.form["name"]
+        price = request.form["price"]
+        categori = request.form["categori"]
+        Goods.create(name=name, price=price, categori=categori)
+        return redirect(url_for("goods.list"))
+
+    return render_template("goods_add.html")
 
 
-@product_bp.route('/edit/<int:goods_id>', methods=['GET', 'POST'])
+@goods_bp.route("/edit/<int:goods_id>", methods=["GET", "POST"])
 def edit(goods_id):
-    product = Product.get_or_none(Product.id == goods_id)
-    if not product:
-        return redirect(url_for('goods.list'))
+    good = Goods.get_or_none(Goods.id == goods_id)
+    if not good:
+        return redirect(url_for("goods.list"))
 
-    if request.method == 'POST':
-        product.name = request.form['name']
-        product.price = request.form['price']
-        categori=request.form['categori']
-        product.save()
-        return redirect(url_for('goods.list'))
+    if request.method == "POST":
+        good.name = request.form["name"]
+        good.price = request.form["price"]
+        categori = request.form["categori"]
+        good.save()
+        return redirect(url_for("goods.list"))
 
-    return render_template('goods_edit.html', goods=product)
+    return render_template("goods_edit.html", goods=good)

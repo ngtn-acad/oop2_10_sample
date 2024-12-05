@@ -1,11 +1,12 @@
 from peewee import Model, ForeignKeyField, DateTimeField
 from .db import db
 from .customer import Customer
-from .product import Product
+from .goods import Goods
+
 
 class Order(Model):
-    user = ForeignKeyField(Customer, backref='orders')
-    product = ForeignKeyField(Product, backref='orders')
+    user = ForeignKeyField(Customer, backref="orders")
+    product = ForeignKeyField(Goods, backref="orders")
     order_date = DateTimeField()
 
     class Meta:

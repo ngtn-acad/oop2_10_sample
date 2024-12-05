@@ -1,0 +1,561 @@
+[
+    {
+        "label": "Model",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "CharField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "IntegerField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "SqliteDatabase",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "CharField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "DecimalField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKeyField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "DateTimeField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "CharField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "IntegerField",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Goods",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Goods",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_database",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "blueprints",
+        "importPath": "routes",
+        "description": "routes",
+        "isExtraImport": true,
+        "detail": "routes",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "kind": 6,
+        "importPath": "models.customer",
+        "description": "models.customer",
+        "peekOfCode": "class Customer(Model):\n    id = IntegerField(primary_key=True)\n    table = IntegerField()\n    class Meta:\n        database = db",
+        "detail": "models.customer",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "models.db",
+        "description": "models.db",
+        "peekOfCode": "db = SqliteDatabase('my_database.db')",
+        "detail": "models.db",
+        "documentation": {}
+    },
+    {
+        "label": "Goods",
+        "kind": 6,
+        "importPath": "models.goods",
+        "description": "models.goods",
+        "peekOfCode": "class Goods(Model):\n    name = CharField()\n    price = DecimalField()\n    categori = DecimalField()\n    class Meta:\n        database = db",
+        "detail": "models.goods",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "kind": 6,
+        "importPath": "models.order",
+        "description": "models.order",
+        "peekOfCode": "class Order(Model):\n    user = ForeignKeyField(Customer, backref=\"orders\")\n    product = ForeignKeyField(Goods, backref=\"orders\")\n    order_date = DateTimeField()\n    class Meta:\n        database = db",
+        "detail": "models.order",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "models.user",
+        "description": "models.user",
+        "peekOfCode": "class User(Model):\n    name = CharField()\n    age = IntegerField()\n    class Meta:\n        database = db",
+        "detail": "models.user",
+        "documentation": {}
+    },
+    {
+        "label": "list",
+        "kind": 2,
+        "importPath": "routes.customer",
+        "description": "routes.customer",
+        "peekOfCode": "def list():\n    # データ取得\n    customer = Customer.select()\n    return render_template('customer_list.html', title='客一覧', customers=customer)\n@customer_bp.route('/add', methods=['GET', 'POST'])\ndef add():\n    if request.method == 'POST':\n        table = request.form['table']\n        Customer.create(table=table)\n        return redirect(url_for('customer.list'))",
+        "detail": "routes.customer",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "routes.customer",
+        "description": "routes.customer",
+        "peekOfCode": "def add():\n    if request.method == 'POST':\n        table = request.form['table']\n        Customer.create(table=table)\n        return redirect(url_for('customer.list'))\n    return render_template('customer_add.html')\n@customer_bp.route('/edit/<int:customer_id>', methods=['GET', 'POST'])\ndef edit(customer_id):\n    customer = Customer.get_or_none(Customer.id == customer_id)\n    if not customer:",
+        "detail": "routes.customer",
+        "documentation": {}
+    },
+    {
+        "label": "edit",
+        "kind": 2,
+        "importPath": "routes.customer",
+        "description": "routes.customer",
+        "peekOfCode": "def edit(customer_id):\n    customer = Customer.get_or_none(Customer.id == customer_id)\n    if not customer:\n        return redirect(url_for('customer.list'))\n    if request.method == 'POST':\n        customer.table = request.form['table']\n        customer.save()\n        return redirect(url_for('customer.list'))\n    return render_template('customer_edit.html', customer=customer)",
+        "detail": "routes.customer",
+        "documentation": {}
+    },
+    {
+        "label": "customer_bp",
+        "kind": 5,
+        "importPath": "routes.customer",
+        "description": "routes.customer",
+        "peekOfCode": "customer_bp = Blueprint('customer', __name__, url_prefix='/customers')\n@customer_bp.route('/')\ndef list():\n    # データ取得\n    customer = Customer.select()\n    return render_template('customer_list.html', title='客一覧', customers=customer)\n@customer_bp.route('/add', methods=['GET', 'POST'])\ndef add():\n    if request.method == 'POST':\n        table = request.form['table']",
+        "detail": "routes.customer",
+        "documentation": {}
+    },
+    {
+        "label": "list",
+        "kind": 2,
+        "importPath": "routes.goods",
+        "description": "routes.goods",
+        "peekOfCode": "def list():\n    goods = Goods.select()\n    return render_template(\"goods_list.html\", title=\"商品一覧\", items=goods)\n@goods_bp.route(\"/add\", methods=[\"GET\", \"POST\"])\ndef add():\n    # POSTで送られてきたデータは登録\n    if request.method == \"POST\":\n        name = request.form[\"name\"]\n        price = request.form[\"price\"]\n        categori = request.form[\"categori\"]",
+        "detail": "routes.goods",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "routes.goods",
+        "description": "routes.goods",
+        "peekOfCode": "def add():\n    # POSTで送られてきたデータは登録\n    if request.method == \"POST\":\n        name = request.form[\"name\"]\n        price = request.form[\"price\"]\n        categori = request.form[\"categori\"]\n        Goods.create(name=name, price=price, categori=categori)\n        return redirect(url_for(\"goods.list\"))\n    return render_template(\"goods_add.html\")\n@goods_bp.route(\"/edit/<int:goods_id>\", methods=[\"GET\", \"POST\"])",
+        "detail": "routes.goods",
+        "documentation": {}
+    },
+    {
+        "label": "edit",
+        "kind": 2,
+        "importPath": "routes.goods",
+        "description": "routes.goods",
+        "peekOfCode": "def edit(goods_id):\n    good = Goods.get_or_none(Goods.id == goods_id)\n    if not good:\n        return redirect(url_for(\"goods.list\"))\n    if request.method == \"POST\":\n        good.name = request.form[\"name\"]\n        good.price = request.form[\"price\"]\n        categori = request.form[\"categori\"]\n        good.save()\n        return redirect(url_for(\"goods.list\"))",
+        "detail": "routes.goods",
+        "documentation": {}
+    },
+    {
+        "label": "goods_bp",
+        "kind": 5,
+        "importPath": "routes.goods",
+        "description": "routes.goods",
+        "peekOfCode": "goods_bp = Blueprint(\"goods\", __name__, url_prefix=\"/goods\")\n@goods_bp.route(\"/\")\ndef list():\n    goods = Goods.select()\n    return render_template(\"goods_list.html\", title=\"商品一覧\", items=goods)\n@goods_bp.route(\"/add\", methods=[\"GET\", \"POST\"])\ndef add():\n    # POSTで送られてきたデータは登録\n    if request.method == \"POST\":\n        name = request.form[\"name\"]",
+        "detail": "routes.goods",
+        "documentation": {}
+    },
+    {
+        "label": "list",
+        "kind": 2,
+        "importPath": "routes.order",
+        "description": "routes.order",
+        "peekOfCode": "def list():\n    orders = Order.select()\n    return render_template(\"order_list.html\", title=\"注文一覧\", items=orders)\n@order_bp.route(\"/add\", methods=[\"GET\", \"POST\"])\ndef add():\n    if request.method == \"POST\":\n        user_id = request.form[\"user_id\"]\n        product_id = request.form[\"product_id\"]\n        order_date = datetime.now()\n        Order.create(user=user_id, product=product_id, order_date=order_date)",
+        "detail": "routes.order",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "routes.order",
+        "description": "routes.order",
+        "peekOfCode": "def add():\n    if request.method == \"POST\":\n        user_id = request.form[\"user_id\"]\n        product_id = request.form[\"product_id\"]\n        order_date = datetime.now()\n        Order.create(user=user_id, product=product_id, order_date=order_date)\n        return redirect(url_for(\"order.list\"))\n    users = Customer.select()\n    products = Goods.select()\n    return render_template(\"order_add.html\", users=users, products=products)",
+        "detail": "routes.order",
+        "documentation": {}
+    },
+    {
+        "label": "edit",
+        "kind": 2,
+        "importPath": "routes.order",
+        "description": "routes.order",
+        "peekOfCode": "def edit(order_id):\n    order = Order.get_or_none(Order.id == order_id)\n    if not order:\n        return redirect(url_for(\"order.list\"))\n    if request.method == \"POST\":\n        order.user = request.form[\"user_id\"]\n        order.product = request.form[\"product_id\"]\n        order.save()\n        return redirect(url_for(\"order.list\"))\n    users = Customer.select()",
+        "detail": "routes.order",
+        "documentation": {}
+    },
+    {
+        "label": "order_bp",
+        "kind": 5,
+        "importPath": "routes.order",
+        "description": "routes.order",
+        "peekOfCode": "order_bp = Blueprint(\"order\", __name__, url_prefix=\"/orders\")\n@order_bp.route(\"/\")\ndef list():\n    orders = Order.select()\n    return render_template(\"order_list.html\", title=\"注文一覧\", items=orders)\n@order_bp.route(\"/add\", methods=[\"GET\", \"POST\"])\ndef add():\n    if request.method == \"POST\":\n        user_id = request.form[\"user_id\"]\n        product_id = request.form[\"product_id\"]",
+        "detail": "routes.order",
+        "documentation": {}
+    },
+    {
+        "label": "list",
+        "kind": 2,
+        "importPath": "routes.user",
+        "description": "routes.user",
+        "peekOfCode": "def list():\n    # データ取得\n    users = User.select()\n    return render_template('user_list.html', title='ユーザー一覧', items=users)\n@user_bp.route('/add', methods=['GET', 'POST'])\ndef add():\n    if request.method == 'POST':\n        name = request.form['name']\n        age = request.form['age']\n        User.create(name=name, age=age)",
+        "detail": "routes.user",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "routes.user",
+        "description": "routes.user",
+        "peekOfCode": "def add():\n    if request.method == 'POST':\n        name = request.form['name']\n        age = request.form['age']\n        User.create(name=name, age=age)\n        return redirect(url_for('user.list'))\n    return render_template('user_add.html')\n@user_bp.route('/edit/<int:user_id>', methods=['GET', 'POST'])\ndef edit(user_id):\n    user = User.get_or_none(User.id == user_id)",
+        "detail": "routes.user",
+        "documentation": {}
+    },
+    {
+        "label": "edit",
+        "kind": 2,
+        "importPath": "routes.user",
+        "description": "routes.user",
+        "peekOfCode": "def edit(user_id):\n    user = User.get_or_none(User.id == user_id)\n    if not user:\n        return redirect(url_for('user.list'))\n    if request.method == 'POST':\n        user.name = request.form['name']\n        user.age = request.form['age']\n        user.save()\n        return redirect(url_for('user.list'))\n    return render_template('user_edit.html', user=user)",
+        "detail": "routes.user",
+        "documentation": {}
+    },
+    {
+        "label": "user_bp",
+        "kind": 5,
+        "importPath": "routes.user",
+        "description": "routes.user",
+        "peekOfCode": "user_bp = Blueprint('user', __name__, url_prefix='/users')\n@user_bp.route('/')\ndef list():\n    # データ取得\n    users = User.select()\n    return render_template('user_list.html', title='ユーザー一覧', items=users)\n@user_bp.route('/add', methods=['GET', 'POST'])\ndef add():\n    if request.method == 'POST':\n        name = request.form['name']",
+        "detail": "routes.user",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def index():\n    return render_template('index.html')\nif __name__ == '__main__':\n    app.run(port=8080, debug=True)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n# データベースの初期化\ninitialize_database()\n# 各Blueprintをアプリケーションに登録\nfor blueprint in blueprints:\n    app.register_blueprint(blueprint)\n# ホームページのルート\n@app.route('/')\ndef index():\n    return render_template('index.html')",
+        "detail": "app",
+        "documentation": {}
+    }
+]
