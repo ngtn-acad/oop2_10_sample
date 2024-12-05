@@ -14,24 +14,28 @@
         <li>テストデータ一覧</li>
     </ul>
 
-    <table border="1">
-        <thead>
-            <a href="{{ url_for('test.add') }}">新しいテストデータを追加</a>
+
+    <thead>
+        <a href="{{ url_for('test.add') }}">新しいテストデータを追加</a>
+        <table>
             <tr>
+                <th>&nbsp;</th>
                 <th>ユーザー名</th>
                 <th>教科名</th>
                 <th>点数</th>
             </tr>
-        </thead>
-        <tbody>
-            {% for test in items %}
-            <tr>
-                <td>{{ test.user.name }}</td> <!-- ユーザー名 -->
-                <td>{{ test.name }}</td> <!-- 教科名 -->
-                <td>{{ test.score }}</td> <!-- 点数 -->
-            </tr>
-            {% endfor %}
-        </tbody>
+    </thead>
+    <tbody>
+        {% for test in items %}
+        <tr>
+            <td><a href="{{ url_for('test.edit', test_id=test.id) }}">編集</a></td>
+            <td>{{ test.user.name }}</td> <!-- ユーザー名 -->
+            <td>{{ test.name }}</td> <!-- 教科名 -->
+            <td>{{ test.score }}</td> <!-- 点数 -->
+        </tr>
+        {% endfor %}
+
+    </tbody>
     </table>
 </body>
 
