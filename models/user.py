@@ -1,8 +1,11 @@
-from peewee import Model, CharField, IntegerField
+from peewee import Model, TextField, IntegerField
 from .db import db
 
+
 class User(Model):
-    name = CharField()
+    student_id = TextField(unique=True)
+    name = TextField()
+    gender = TextField()
     age = IntegerField()
 
     class Meta:
