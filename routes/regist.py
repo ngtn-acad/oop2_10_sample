@@ -9,7 +9,7 @@ regist_bp = Blueprint('regist', __name__, url_prefix='/regist')
 @regist_bp.route('/')
 def list():
     regist = Regist.select()
-    return render_template('regist_list.html', title='注文一覧', regists=regist)
+    return render_template('regist_list.html', title='履修リスト', regists=regist)
 
 
 @regist_bp.route('/add', methods=['GET', 'POST'])
