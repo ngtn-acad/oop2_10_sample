@@ -11,4 +11,4 @@ def list():
     # データ取得
     searches = Search.select()
 
-    return render_template('search_list.html', title='検索一覧', items=searches)
+    return render_template('user_search.html', title='検索一覧', items=searches)
