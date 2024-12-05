@@ -13,9 +13,21 @@
         <li>ユーザー編集</li>
     </ul>
 
-    <form action="{{ url_for('user.edit', user_id=user.id) }}" method="post">
-        <label>名前: <input type="text" name="name" value="{{ user.name }}" required></label><br>
-        <label>武器: <input type="text" name="wepon" value="{{ item.wepon }}" required></label><br>
+    <form action="{{ url_for('order.edit', order_id=order.id) }}" method="post">
+        <label>ユーザー: 
+            <select name="user_id" required>
+                {% for user in users %}
+                    <option value="{{ user.id }}" {% if status.user.id == user.id %}selected{% endif %}>{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
+        <label>装備名: 
+            <select name="item_id" required>
+                {% for item in items %}
+                    <option value="{{ item.id }}" {% if status.item.id == item.id %}selected{% endif %}>{{ item.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
         <button type="submit">保存</button>
     </form>
 </body>
