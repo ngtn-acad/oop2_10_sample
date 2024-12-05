@@ -10,7 +10,7 @@
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
         <li><a href="{{ url_for('product.list') }}">蔵書一覧</a></li>
-        <li>製品編集</li>
+        <li>蔵書編集</li>
     </ul>
 
     <form action="{{ url_for('product.edit', product_id=product.id) }}" method="post">
