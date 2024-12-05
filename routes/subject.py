@@ -2,13 +2,13 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from models import Subject
 
 # Blueprintの作成
-subject_bp = Blueprint('subject', __name__, url_prefix='/products')
+subject_bp = Blueprint('subject', __name__, url_prefix='/subjects')
 
 
 @subject_bp.route('/')
 def list():
     subjects = Subject.select()
-    return render_template('subject_list.html', title='製品一覧', items=subjects)
+    return render_template('subject_list.html', title='科目一覧', subjects=subjects)
 
 
 @subject_bp.route('/add', methods=['GET', 'POST'])
@@ -36,4 +36,4 @@ def edit(subject_id):
         subject.save()
         return redirect(url_for('subject.list'))
 
-    return render_template('subject_edit.html', product=subject)
+    return render_template('subject_edit.html', subject=subject)
