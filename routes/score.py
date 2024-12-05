@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models import Score, Challenger, Song
-from datetime import datetime
 
 # Blueprintの作成
 score_bp = Blueprint('score', __name__, url_prefix='/scores')
@@ -17,8 +16,8 @@ def add():
     if request.method == 'POST':
         challenger_id = request.form['challenger_id']
         song_id = request.form['song_id']
-        score_num = datetime.now()
-        Score.create(challenger=challenger_id, song=song_id, score=score_num)
+        score_id = request.form['score_id']
+        Score.create(challenger=challenger_id, song=song_id, score=score_id)
         return redirect(url_for('score.list'))
     
     challengers = Challenger.select()
