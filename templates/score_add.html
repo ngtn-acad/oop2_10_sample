@@ -29,9 +29,11 @@
         >曲:
         <select name="song_id" required>
           {% for song in songs %}
-          <option value="{{ song.id }}">{{ song.name }}</option>
+          <option value="{{ song.id }}">{{ song.song }}</option>
           {% endfor %}
         </select> </label
+      ><br />
+      <label>スコア: <input type="number" name="score_id" required /></label
       ><br />
       <button type="submit">追加</button>
     </form>
