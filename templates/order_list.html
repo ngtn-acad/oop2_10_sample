@@ -9,10 +9,10 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('order.list') }}">クエスト一覧</a></li>
+        <li><a href="{{ url_for('quest.list') }}">クエスト一覧</a></li>
     </ul>
 
-    <a href="{{ url_for('order.add') }}">新規ダンジョン追加</a>
+    <a href="{{ url_for('quest.add') }}">新規ダンジョン追加</a>
     <table>
         <thead>
             <tr>
@@ -24,7 +24,7 @@
         <tbody>
             {% for user in items %}
             <tr>
-                <td><a href="{{ url_for('order.edit', order_id=order.id) }}">編集</a></td>
+                <td><a href="{{ url_for('quest.edit', order_id=order.id) }}">編集</a></td>
                 <td>{{ user.name }}</td>
                 <td>{{ order.product.name }}</td>
                 <td>{{ order.order_date }}</td>
