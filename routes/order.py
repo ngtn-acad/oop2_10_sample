@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models import Order, User, Product
 from datetime import datetime
+from datetime import timedelta
 
 # Blueprintの作成
 order_bp = Blueprint('order', __name__, url_prefix='/orders')
@@ -18,10 +19,10 @@ def add():
         user_id = request.form['user_id']
         product_id = request.form['product_id']
         order_date = datetime.now()
-        return_date = datetime.date()+14
+        return_date = order_date.date()+(timedelta(weeks=2)).date()
+        print(return_date)
         Order.create(user=user_id, product=product_id, order_date=order_date, return_date=return_date)
         return redirect(url_for('order.list'))
-    
     users = User.select()
     products = Product.select()
     return render_template('order_add.html', users=users, products=products)
