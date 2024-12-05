@@ -20,7 +20,7 @@ def add():
         hitpoint = request.form['hitpoint']
         attack = request.form['attack']
         defence = request.form['defence']
-        Item.create(name=name, price=hitpoint,attack=attack,defence=defence)
+        Item.create(name=name, hitpoint=hitpoint,attack=attack,defence=defence)
         return redirect(url_for('item.list'))
     
     return render_template('item_add.html')
