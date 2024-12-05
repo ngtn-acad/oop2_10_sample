@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models import Product
+from models import Tag
 
 # Blueprintの作成
 product_bp = Blueprint('product', __name__, url_prefix='/products')
@@ -9,7 +10,6 @@ product_bp = Blueprint('product', __name__, url_prefix='/products')
 def list():
     products = Product.select()
     return render_template('product_list.html', title='記事一覧', items=products)
-#aaa
 
 
 @product_bp.route('/add', methods=['GET', 'POST'])
