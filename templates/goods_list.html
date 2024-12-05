@@ -9,10 +9,10 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('product.list') }}">商品一覧</a></li>
+        <li><a href="{{ url_for('goods.list') }}">商品一覧</a></li>
 
     </ul>
-    <a href="{{ url_for('product.add') }}">新規商品追加</a>
+    <a href="{{ url_for('goods.add') }}">新規商品追加</a>
     <table>
         <thead>
             <tr>
@@ -22,11 +22,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for product in items %}
+            {% for goods in items %}
             <tr>
-                <td><a href="{{ url_for('product.edit', product_id=product.id) }}">編集</a></td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td><a href="{{ url_for('goods.edit', goods_id=goods.id) }}">編集</a></td>
+                <td>{{ goods.name }}</td>
+                <td>{{ goods.price }}</td>
             </tr>
             {% endfor %}
         </tbody>
