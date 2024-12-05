@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Sleep
+from models import Sleep, User
 
 # Blueprintの作成
 sleep_bp = Blueprint('sleep', __name__, url_prefix='/sleeps')
@@ -18,13 +18,14 @@ def list():
 def add():
     
     if request.method == 'POST':
-        name = request.form['name']
+        user_id = request.form['user_id']
         start = request.form['start']
         end = request.form['end']
-        Sleep.create(name=name, start = start, end = end)
+        Sleep.create(user_id=user_id, start = start, end = end)
         return redirect(url_for('sleep.list'))
     
-    return render_template('sleep_add.html')
+    users = User.select()
+    return render_template('sleep_add.html',users=users)
 
 
 @sleep_bp.route('/edit/<int:sleep_id>', methods=['GET', 'POST'])
@@ -34,7 +35,7 @@ def edit(sleep_id):
         return redirect(url_for('sleep.list'))
 
     if request.method == 'POST':
-        sleep.name = request.form['name']
+        sleep.user = request.form['user_id']
         sleep.start = request.form['start']
         sleep.end = request.form['end']
         sleep.save()

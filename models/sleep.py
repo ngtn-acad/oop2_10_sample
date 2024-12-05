@@ -1,10 +1,11 @@
-from peewee import Model, CharField, IntegerField
+from peewee import Model, IntegerField, ForeignKeyField
 from .db import db
+from .user import User
 
 class Sleep(Model):
-    name = CharField()
     start = IntegerField()
     end = IntegerField()
+    user = ForeignKeyField(User, backref='sleeps')
 
     class Meta:
         database = db
