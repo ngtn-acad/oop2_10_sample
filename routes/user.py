@@ -15,8 +15,7 @@ def list():
 
 
 @user_bp.route('/add', methods=['GET', 'POST'])
-def add():
-    
+def add():  
     if request.method == 'POST':
         name = request.form['name']
         hp = request.form['hp']

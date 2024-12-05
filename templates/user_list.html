@@ -18,8 +18,8 @@
             <tr>
                 <th>&nbsp;</th>
                 <th>名前</th>
-                <th>AT</th>
                 <th>HP</th>
+                <th>AT</th>
                 <th>DF</th>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
             <tr>
                 <td><a href="{{ url_for('user.edit', user_id=user.id) }}">編集</a></td>
                 <td>{{ user.name }}</td>
-                <td>{{ user.at }}</td>
                 <td>{{ user.hp }}</td>
+                <td>{{ user.at }}</td>
                 <td>{{ user.df }}</td>
             </tr>
             {% endfor %}
