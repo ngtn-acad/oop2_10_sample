@@ -20,7 +20,7 @@ def add():
     if request.method == 'POST':
         name = request.form['name']
         gender = request.form['gender']
-        studentNumber = request.form['student_Number']
+        studentNumber = request.form['studentNumber']
         User.create(name=name, gender = gender, studentNumber = studentNumber)
         return redirect(url_for('user.list'))
     
@@ -36,7 +36,7 @@ def edit(user_id):
     if request.method == 'POST':
         user.name = request.form['name']
         user.gender = request.form['gender']
-        user.studentNumber = request.form['student_Number']
+        user.studentNumber = request.form['studentNumber']
         user.save()
         return redirect(url_for('user.list'))
 
