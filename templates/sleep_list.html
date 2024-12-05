@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>睡眠</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('sleep.list') }}">睡眠</a></li>
+    </ul>
+
+    <a href="{{ url_for('sleep.add') }}">新規睡眠追加</a>
+    <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>名前</th>
+                <th>入眠時間</th>
+                <th>起床時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sleep in items %}
+            <tr>
+                <td><a href="{{ url_for('sleep.edit', sleep_id=sleep.id) }}">編集</a></td>
+                <td>{{ sleep.name }}</td>
+                <td>{{ sleep.start }}</td>
+                <td>{{ sleep.end }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
