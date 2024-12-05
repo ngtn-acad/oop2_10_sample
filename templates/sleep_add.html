@@ -14,7 +14,13 @@
     </ul>
 
     <form action="{{ url_for('sleep.add') }}" method="post">
-        <label>名前: <input type="text" name="name" required></label><br>
+        <label>名前: 
+            <select name="user_id" required>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
         <label>入眠時間: <input type="number" name="start" required></label><br>
         <label>起床時間: <input type="number" name="end" required></label><br>
         <button type="submit">追加</button>

@@ -26,7 +26,7 @@
             {% for sleep in items %}
             <tr>
                 <td><a href="{{ url_for('sleep.edit', sleep_id=sleep.id) }}">編集</a></td>
-                <td>{{ sleep.name }}</td>
+                <td>{{ sleep.user.name }}</td>
                 <td>{{ sleep.start }}</td>
                 <td>{{ sleep.end }}</td>
             </tr>
