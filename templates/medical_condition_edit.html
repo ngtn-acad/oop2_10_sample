@@ -16,8 +16,15 @@
     </ul>
 
     <form action="{{ url_for('product.edit', medical_condition_id=medical_condition.id) }}" method="post">
-        <label>症状: <input type="number" step="1" name="price" value="{{ product.price }}" required></label><br>
-        <button type="submit">保存</button>
+        <label>症状: <input type="checkbox" id="medical_condition_id" name="condition" value="fever">
+            発熱
+            <input type="checkbox" id="medical_condition_id" name="condition" value="vomiting">
+            嘔吐
+            <input type="checkbox" id="medical_condition_id" name="condition" value="headache">
+            頭痛
+            <input type="checkbox" id="medical_condition_id" name="condition" value="dizziness">
+            眩暈
+            <button type="submit">追加</button>
     </form>
 </body>
 
