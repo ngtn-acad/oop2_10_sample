@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>お店追加</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}" />
+  </head>
+  <body>
+    <h1>新しいお店を追加</h1>
+    <ul class="breadcrumb">
+      <li><a href="{{ url_for('index') }}">HOME</a></li>
+      <li><a href="{{ url_for('restaurant.list') }}">お店一覧</a></li>
+      <li>お店登録</li>
+    </ul>
+
+    <form action="{{ url_for('restaurant.add') }}" method="post">
+      <label>名前: <input type="text" name="name" required /></label><br />
+      <label>住所: <input type="text" name="address" required /></label><br />
+      <button type="submit">追加</button>
+    </form>
+  </body>
+</html>
