@@ -4,6 +4,8 @@ from .user import User
 from .product import Product
 from .order import Order
 from .test import Test
+from .sleep import Sleep
+
 
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
 MODELS = [
@@ -11,6 +13,7 @@ MODELS = [
     Product,
     Order,
     Test,
+    Sleep,
 ]
 
 # データベースの初期化関数

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>睡眠時間編集</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>睡眠時間編集</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('sleep.list') }}">睡眠時間一覧</a></li>
+        <li>睡眠時間編集</li>
+    </ul>
+
+    <form action="{{ url_for('sleep.edit', sleep_id=sleep.id) }}" method="post">
+        <label>名前: <input type="text" name="name" value="{{ sleep.name }}" required></label><br>
+        <label>入眠時間スタート: <input type="number" name="start" value="{{ sleep.start }}" required></label><br>
+        <label>起きた時間: <input type="number" name="end" value="{{ sleep.end }}" required></label><br>
+        <button type="submit">保存</button>
+    </form>
+</body>
+</html>

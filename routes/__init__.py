@@ -2,6 +2,7 @@ from .user import user_bp
 from .product import product_bp
 from .order import order_bp
 from .test import test_bp
+from .sleep import sleep_bp
 
 # Blueprintをリストとしてまとめる
 blueprints = [
@@ -9,4 +10,5 @@ blueprints = [
   product_bp,
   order_bp,
   test_bp
+  sleep_bp
 ]
