@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Order, User, Product, Article
+from models import Order, User, Product, Articles
 from datetime import datetime
 
 # Blueprintの作成
@@ -16,14 +16,14 @@ def list():
 def add():
     if request.method == 'POST':
         user_id = request.form['user_id']
-        product_id = request.form['product_id']
-        order_date = datetime.now()
-        Order.create(user=user_id, product=product_id, order_date=order_date)
-        return redirect(url_for('order.list'))
+        article_id = request.form['article_id']
+        created_at = datetime.now()
+        Articles.create(user=user_id, article=article_id, created_at=created_at)
+        return redirect(url_for('push.list'))
     
     users = User.select()
-    products = Product.select()
-    return render_template('order_add.html', users=users, products=products)
+    articles = Articles.select()
+    return render_template('order_add.html', users=users, article=articles)
 
 
 @order_bp.route('/edit/<int:order_id>', methods=['GET', 'POST'])
