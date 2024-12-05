@@ -2,15 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>データ一覧</title>
+    <title>予約一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 <body>
     <h1>index</h1>
     <ul>
-      <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
-      <li><a href="{{ url_for('product.list') }}">製品リスト</a></li>
-      <li><a href="{{ url_for('order.list') }}">注文リスト</a></li>
+      <li><a href="{{ url_for('booking.request') }}">予約希望へ</a></li>
+      <li><a href="{{ url_for('order.list') }}">予約リスト</a></li>
     </ul>
 </body>
 </html>
