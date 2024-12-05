@@ -15,15 +15,15 @@ def list():
 @order_bp.route("/add", methods=["GET", "POST"])
 def add():
     if request.method == "POST":
-        user_id = request.form["user_id"]
-        product_id = request.form["product_id"]
+        customer_id = request.form["customer_id"]
+        goods_id = request.form["goods_id"]
         order_date = datetime.now()
-        Order.create(user=user_id, product=product_id, order_date=order_date)
+        Order.create(customer=customer_id, goods=goods_id, order_date=order_date)
         return redirect(url_for("order.list"))
 
-    users = Customer.select()
-    products = Goods.select()
-    return render_template("order_add.html", users=users, products=products)
+    customer = Customer.select()
+    goods = Goods.select()
+    return render_template("order_add.html", customer=customer, goods=goods)
 
 
 @order_bp.route("/edit/<int:order_id>", methods=["GET", "POST"])

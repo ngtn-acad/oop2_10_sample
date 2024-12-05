@@ -14,17 +14,17 @@
     </ul>
     
     <form action="{{ url_for('order.add') }}" method="post">
-        <label>ユーザー: 
-            <select name="user_id" required>
-                {% for user in users %}
-                    <option value="{{ user.id }}">{{ user.name }}</option>
+        <label>テーブル番号: 
+            <select name="customer_id" required>
+                {% for customer in customer %}
+                    <option value="{{ customer_id }}">{{ customer.table }}</option>
                 {% endfor %}
             </select>
         </label><br>
-        <label>製品: 
-            <select name="product_id" required>
-                {% for product in products %}
-                    <option value="{{ product.id }}">{{ product.name }}</option>
+        <label>寿司: 
+            <select name="goods_id" required>
+                {% for goods in goods %}
+                    <option value="{{ goods_id }}">{{ goods.name }}</option>
                 {% endfor %}
             </select>
         </label><br>
