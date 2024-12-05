@@ -19,8 +19,7 @@ def add():
         user_id = request.form['user_id']
         product_id = request.form['product_id']
         order_date = datetime.now()
-        return_date = order_date.date()+(timedelta(weeks=2)).date()
-        # print(return_date)
+        return_date = order_date + timedelta(weeks=2)
         Order.create(user=user_id, product=product_id, order_date=order_date, return_date=return_date)
         return redirect(url_for('order.list'))
     users = User.select()
