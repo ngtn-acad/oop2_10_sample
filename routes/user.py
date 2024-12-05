@@ -11,16 +11,16 @@ def list():
     # データ取得
     users = User.select()
 
-    return render_template('user_list.html', title='ユーザー一覧', items=users)
+    return render_template('user_list.html', title='キャラクター一覧', items=users)
 
 
 @user_bp.route('/add', methods=['GET', 'POST'])
 def add():
-    
+
     if request.method == 'POST':
         name = request.form['name']
-        age = request.form['age']
-        User.create(name=name, age=age)
+        gender = request.form['gender']  # 性別を取得
+        User.create(name=name, gender=gender)  # 性別を保存
         return redirect(url_for('user.list'))
     
     return render_template('user_add.html')
@@ -34,7 +34,7 @@ def edit(user_id):
 
     if request.method == 'POST':
         user.name = request.form['name']
-        user.age = request.form['age']
+        user.gender = request.form['gender']
         user.save()
         return redirect(url_for('user.list'))
 
