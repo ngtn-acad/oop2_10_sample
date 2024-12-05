@@ -37,9 +37,13 @@ def edit(user_id):
         return redirect(url_for("user.list"))
 
     if request.method == "POST":
+        user.student_id = request.form["student_id"]
         user.name = request.form["name"]
+        user.gender = request.form["gender"]
         user.age = request.form["age"]
+
         user.save()
+
         return redirect(url_for("user.list"))
 
     return render_template("user_edit.html", user=user)
