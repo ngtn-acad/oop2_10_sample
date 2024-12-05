@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>データ一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('task.list') }}">業務記録一覧</a></li>
+
+    </ul>
+    <a href="{{ url_for('task.add') }}">新規業務記録追加</a>
+    <table>
+        <thead>
+            <tr>
+                <!-- <th>&nbsp;</th> --> 
+                <th>ユーザー</th>
+                <th>作業種類</th>
+                <th>作業内容</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in items %}
+            <tr>
+                <!-- <td><a href="{{ url_for('task.edit', task_id=task.id) }}">編集</a></td> --> 
+                <td>{{ task.usar.name }}</td>
+                <td>{{ task.type }}</td>
+                <td>{{ task.content }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
