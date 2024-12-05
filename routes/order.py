@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Order, User, Product
+from models import Order, Customer, Product
 from datetime import datetime
 
 # Blueprintの作成
@@ -21,7 +21,7 @@ def add():
         Order.create(user=user_id, product=product_id, order_date=order_date)
         return redirect(url_for('order.list'))
     
-    users = User.select()
+    users = Customer.select()
     products = Product.select()
     return render_template('order_add.html', users=users, products=products)
 
@@ -38,6 +38,6 @@ def edit(order_id):
         order.save()
         return redirect(url_for('order.list'))
 
-    users = User.select()
+    users = Customer.select()
     products = Product.select()
     return render_template('order_edit.html', order=order, users=users, products=products)
