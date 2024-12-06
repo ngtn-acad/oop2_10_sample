@@ -20,6 +20,7 @@
       <thead>
         <tr>
           <th>&nbsp;</th>
+          <th>&nbsp;</th>
           <th>チャレンジャー</th>
           <th>曲</th>
           <th>スコア</th>
@@ -30,6 +31,19 @@
         <tr>
           <td>
             <a href="{{ url_for('score.edit', score_id=score.id) }}">編集</a>
+          </td>
+          <td>
+            <form
+              action="{{ url_for('score.delete', score_id=score.id) }}"
+              method="post"
+            >
+              <button
+                type="submit"
+                onclick="return confirm('本当に削除しますか？');"
+              >
+                削除
+              </button>
+            </form>
           </td>
           <td>{{ score.challenger.name }}</td>
           <td>{{ score.song.song }}</td>

@@ -41,3 +41,11 @@ def edit(score_id):
     challengers = Challenger.select()
     songs = Song.select()
     return render_template('score_edit.html', score=score, challengers=challengers, songs=songs)
+
+@score_bp.route('/delete/<int:score_id>', methods=['POST'])
+def delete(score_id):
+    # 指定されたIDのスコアを取得
+    score = Score.get_or_none(Score.id == score_id)
+    if score:
+        score.delete_instance()  # スコアを削除
+    return redirect(url_for('score.list'))  # スコア一覧ページにリダイレクト
