@@ -25,7 +25,8 @@
         <tbody>
             {% for product in items %}
             <tr>
-                <td><a href="{{ url_for('medical_condition.edit', product_id=product.id) }}">編集</a></td>
+                <td><a href="{{ url_for('medical_condition.edit', medical_condition_id=medical_condition.id) }}">編集</a>
+                </td>
                 <td>{{ product.price }}</td>
             </tr>
             {% endfor %}
