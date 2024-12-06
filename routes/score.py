@@ -8,7 +8,7 @@ score_bp = Blueprint('score', __name__, url_prefix='/scores')
 @score_bp.route('/')
 def list():
     scores = Score.select()
-    return render_template('score_list.html', title='スコア一覧', items=scores)
+    return render_template('score_list.html', title='得点一覧', items=scores)
 
 
 @score_bp.route('/add', methods=['GET', 'POST'])
@@ -44,8 +44,8 @@ def edit(score_id):
 
 @score_bp.route('/delete/<int:score_id>', methods=['POST'])
 def delete(score_id):
-    # 指定されたIDのスコアを取得
+    # 指定されたIDの得点を取得
     score = Score.get_or_none(Score.id == score_id)
     if score:
-        score.delete_instance()  # スコアを削除
-    return redirect(url_for('score.list'))  # スコア一覧ページにリダイレクト
+        score.delete_instance()  # 得点を削除
+    return redirect(url_for('score.list'))  # 得点一覧ページにリダイレクト
