@@ -1,9 +1,9 @@
-from peewee import Model, CharField, DecimalField
+from peewee import Model, CharField
 from .db import db
 
 class Lunch(Model):
     number = CharField()
-    lunch_place = DecimalField()
+    lunch_place = CharField()
 
     class Meta:
         database = db
