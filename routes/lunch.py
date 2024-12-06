@@ -8,7 +8,7 @@ lunch_bp = Blueprint('lunch', __name__, url_prefix='/lunches')
 @lunch_bp.route('/')
 def list():
     lunches = Lunch.select()
-    return render_template('lunch_list.html', title='昼食どこで食べる？', items=lunches)
+    return render_template('lunch_list.html', title='昼食アンケート', items=lunches)
 
 
 @lunch_bp.route('/add', methods=['GET', 'POST'])

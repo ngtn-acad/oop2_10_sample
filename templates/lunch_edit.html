@@ -9,14 +9,14 @@
     <h1>編集</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('lunch.list') }}">昼食どこで食べる？</a></li>
+        <li><a href="{{ url_for('lunch.list') }}">昼食アンケート</a></li>
         <li>編集</li>
     </ul>
 
     <form action="{{ url_for('lunch.edit', lunch_id=lunch.id) }}" method="post">
-        <label>学籍番号: <input type="text" name="number" required></label><br>
+        <label>学籍番号: <input type="text" name="number" value="{{ lunch.number }}" required></label><br>
         <label>昼食: </label><br>
-        <input type="radio" name="lunch_place" value="なし"> なし
+        <input type="radio" name="lunch_place" value="なし" checked> なし
         <input type="radio" name="lunch_place" value="持参"> 持参
         <input type="radio" name="lunch_place" value="コンビニ"> コンビニ
         <input type="radio" name="lunch_place" value="アメリカフェ"> アメリカフェ
