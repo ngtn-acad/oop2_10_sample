@@ -24,16 +24,37 @@ def add():
     return render_template('product_add.html')
 
 
-@product_bp.route('/edit/<int:product_id>', methods=['GET', 'POST'])
+
+
+
+
+
+
+@product_bp.route('/edit/<int:food_number>', methods=['GET', 'POST'])
 def edit(product_id):
     product = Product.get_or_none(Product.id == product_id)
-    if not product:
-        return redirect(url_for('product.list'))
+    if not food_number:
+        return redirect(url_for('food_number.list'))
 
     if request.method == 'POST':
-        product.name = request.form['name']
-        product.price = request.form['price']
-        product.save()
+        food_numer.name = request.form['name']
+        food_number.price = request.form['price']
+        food_number.save()
+        return redirect(url_for('food_number.list'))
+
+    return render_template('product_edit.html', product=product)
+
+
+@product_bp.route('/edit/<int:drink_number>', methods=['GET', 'POST'])
+def edit(product_id):
+    product = Product.get_or_none(Product.id == product_id)
+    if not drink_number:
+        return redirect(url_for('drink_number.list'))
+
+    if request.method == 'POST':
+        drink_number.name = request.form['name']
+        drink_number.price = request.form['price']
+        drink_number.save()
         return redirect(url_for('product.list'))
 
     return render_template('product_edit.html', product=product)
