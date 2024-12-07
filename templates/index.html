@@ -8,8 +8,10 @@
 <body>
     <h1>index</h1>
     <ul>
+      <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
       <li><a href="{{ url_for('booking.request') }}">予約希望へ</a></li>
       <li><a href="{{ url_for('order.list') }}">予約リスト</a></li>
+      <li><a href="{{ url_for('jibyou.list') }}">持病リスト</a></li>
     </ul>
-</body>
+  </body>
 </html>
