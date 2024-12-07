@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import weapon
+from models import Weapon
 
 # Blueprintの作成
 weapon_bp = Blueprint('weapon', __name__, url_prefix='/weapons')
@@ -7,8 +7,8 @@ weapon_bp = Blueprint('weapon', __name__, url_prefix='/weapons')
 
 @weapon_bp.route('/')
 def list():
-    weapons = weapon.select()
-    return render_template('weapon_list.html', title='製品一覧', items=weapons)
+    weapons = Weapon.select()
+    return render_template('weapon_list.html', title='武器一覧', items=weapons)
 
 
 @weapon_bp.route('/add', methods=['GET', 'POST'])
@@ -19,7 +19,7 @@ def add():
         name = request.form['name']
         attribute = request.form['attribute']
         atackpower = request.form['atackpower']
-        weapon.create(name=name, attribute=attribute,atackpower=atackpower)
+        Weapon.create(name=name, attribute=attribute,atackpower=atackpower)
         return redirect(url_for('weapon.list'))
     
     return render_template('weapon_add.html')
