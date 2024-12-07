@@ -3,6 +3,7 @@ from .db import db
 from .user import User
 from .product import Product
 from .order import Order
+from .lunch import Lunch
 from .parttimer import Parttimer
 from .student_info import Student_info
 
@@ -11,6 +12,7 @@ MODELS = [
     User,
     Product,
     Order,
+    Lunch,
     Parttimer,
     Student_info,
 ]
