@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>症状編集</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+
+<body>
+    <h1>症状を編集</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('medical_condition.list') }}">製品一覧</a></li>
+        <li>症状編集</li>
+    </ul>
+
+    <form action="{{ url_for('product.edit', medical_condition_id=medical_condition.id) }}" method="post">
+        <label>症状: <input type="checkbox" id="medical_condition_id" name="condition" value="fever">
+            発熱
+            <input type="checkbox" id="medical_condition_id" name="condition" value="vomiting">
+            嘔吐
+            <input type="checkbox" id="medical_condition_id" name="condition" value="headache">
+            頭痛
+            <input type="checkbox" id="medical_condition_id" name="condition" value="dizziness">
+            眩暈
+            <button type="submit">追加</button>
+    </form>
+</body>
+
+</html>

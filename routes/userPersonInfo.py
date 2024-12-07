@@ -11,7 +11,7 @@ def list():
     # データ取得
     users = User.select()
 
-    return render_template('user_list.html', title='ユーザー一覧', items=users)
+    return render_template('user_listPersonInfo.html', title='ユーザー一覧', items=users)
 
 
 @user_bp.route('/add', methods=['GET', 'POST'])
@@ -27,9 +27,8 @@ def add():
     return render_template('user_add.html')
 
 
-
-@user_bp.route('/edit/<int:user_id>/<int:contact_id>', methods=['GET', 'POST'])
-def edit(user_id, contact_id):
+@user_bp.route('/edit/<int:user_id,contact_id>', methods=['GET', 'POST'])
+def edit(user_id,contact_id):
     user = User.get_or_none(User.id == user_id)
     contactInfo = User.get_or_none(User.id == contact_id)
     if not user:
