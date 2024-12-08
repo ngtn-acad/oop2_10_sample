@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <title>データ一覧</title>
+    <title>持病一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
+
 <body>
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
@@ -12,31 +14,27 @@
         <li><a href="{{ url_for('jibyou.list') }}">持病一覧</a></li>
     </ul>
 
-    <a href="{{ url_for('jibyou.add') }}">新規注文追加</a>
+    <a href="{{ url_for('jibyou.add') }}">新規持病追加</a>
     <table>
         <thead>
             <tr>
                 <th>&nbsp;</th>
-                <th>ユーザー</th>
+                <th>患者名</th>
+                <th>持病</th>
                 <th>持病の有無</th>
             </tr>
         </thead>
         <tbody>
-            {% for jibyou in items %}
+            {% for item in items %}
             <tr>
-                <td><a href="{{ url_for('jibyou.edit', jibyou_id=jibyou.id) }}">編集</a></td>
-                <td>{{ jibyou.user.name }}</td>
-
-                {% if jibyou.check %}
-                <th>有</th>
-
-                {% else %}
-                <th>無</th>
-
-                {% endif %}
+                <td><a href="{{ url_for('jibyou.edit', jibyou_id=item.id) }}">編集</a></td>
+                <td>{{ item.user.name }}</td>
+                <td>{{ item.condition }}</td>
+                <td>{{ "有" if item.check else "無" }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </body>
+
 </html>

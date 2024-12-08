@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>データ一覧</title>
+    <title>症状一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 
@@ -14,20 +14,22 @@
         <li><a href="{{ url_for('medical_condition.list') }}">症状一覧</a></li>
 
     </ul>
-    <a href="{{ url_for('medical_condition.add') }}">症状追加</a>
+    <a href="{{ url_for('medical_condition.add') }}">新規症状追加</a>
     <table>
         <thead>
             <tr>
                 <th>&nbsp;</th>
+                <th>患者名</th>
                 <th>症状</th>
             </tr>
         </thead>
         <tbody>
-            {% for product in items %}
+            {% for item in items %}
             <tr>
-                <td><a href="{{ url_for('medical_condition.edit', medical_condition_id=medical_condition.id) }}">編集</a>
+                <td><a href="{{ url_for('medical_condition.edit', condition_id=item.id) }}">編集</a>
                 </td>
-                <td>{{ product.price }}</td>
+                <td>{{ item.user.name }}</td>
+                <td>{{ item.condition }}</td>
             </tr>
             {% endfor %}
         </tbody>

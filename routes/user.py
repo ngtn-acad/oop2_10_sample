@@ -28,13 +28,10 @@ def add():
 
 
 
-@user_bp.route('/edit/<int:user_id>/<int:contact_id>', methods=['GET', 'POST'])
-def edit(user_id, contact_id):
+@user_bp.route('/edit/<int:user_id>', methods=['GET', 'POST'])
+def edit(user_id):
     user = User.get_or_none(User.id == user_id)
-    contactInfo = User.get_or_none(User.id == contact_id)
     if not user:
-        return redirect(url_for('user.list'))
-    if not contactInfo:
         return redirect(url_for('user.list'))
 
     if request.method == 'POST':
@@ -44,4 +41,4 @@ def edit(user_id, contact_id):
         user.save()
         return redirect(url_for('user.list'))
 
-    return render_template('user_edit.html', user=user, contactInfo=contactInfo)
+    return render_template('user_edit.html', user=user)

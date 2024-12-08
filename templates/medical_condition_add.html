@@ -3,28 +3,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>製品追加</title>
+    <title>症状追加</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 
 <body>
-    <h1>症状を選択</h1>
+    <h1>新しい症状を追加</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li>症状一覧</li>
+        <li><a href="{{ url_for('medical_condition.list') }}">症状一覧</a></li>
+        <li>症状追加</li>
     </ul>
 
-    <form action="{{ url_for('product.add') }}" method="post">
-        <label>
-            <input type="checkbox" id="medical_condition_id" name="condition" value="fever">
-            発熱
-            <input type="checkbox" id="medical_condition_id" name="condition" value="vomiting">
-            嘔吐
-            <input type="checkbox" id="medical_condition_id" name="condition" value="headache">
-            頭痛
-            <input type="checkbox" id="medical_condition_id" name="condition" value="dizziness">
-            眩暈
+    <form action="{{ url_for('medical_condition.add') }}" method="post">
+        <label>患者:
+            <select name="user_id" required>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
 
+        <label>症状:<br>
+            <input type="checkbox" id="medical_condition_id" name="condition" value="fever">
+            発熱<br>
+            <input type="checkbox" id="medical_condition_id" name="condition" value="vomiting">
+            嘔吐<br>
+            <input type="checkbox" id="medical_condition_id" name="condition" value="headache">
+            頭痛<br>
+            <input type="checkbox" id="medical_condition_id" name="condition" value="dizziness">
+            眩暈<br>
         </label>
 
         <button type="submit">追加</button>
