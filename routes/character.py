@@ -11,7 +11,7 @@ def list():
     # データ取得
     characters = Character.select()
 
-    return render_template('user_list.html', title='ユーザー一覧', items=characters)
+    return render_template('character_list.html', title='キャラクター一覧', items=characters)
 
 
 @character_bp.route('/add', methods=['GET', 'POST'])
@@ -23,7 +23,7 @@ def add():
         Character.create(name=name, gender=gender)
         return redirect(url_for('character.list'))
     
-    return render_template('user_add.html')
+    return render_template('character_add.html')
 
 
 @character_bp.route('/edit/<int:character_id>', methods=['GET', 'POST'])
@@ -38,4 +38,4 @@ def edit(character_id):
         character.save()
         return redirect(url_for('character.list'))
 
-    return render_template('user_edit.html', character=character)
+    return render_template('character_edit.html', character=character)

@@ -17,9 +17,9 @@
         <label>名前: <input type="text" name="name" value="{{ character.name }}" required></label><br>
         <label>性別:
             <select name="gender" required>
-                <option value="male" {% if character.gender == 'male' %}selected{% endif %}>男性</option>
-                <option value="female" {% if character.gender == 'female' %}selected{% endif %}>女性</option>
-                <option value="other" {% if character.gender == 'other' %}selected{% endif %}>その他</option>
+                <option value="男性" {% if character.gender == 'male' %}selected{% endif %}>男性</option>
+                <option value="女性" {% if character.gender == 'female' %}selected{% endif %}>女性</option>
+                <option value="その他" {% if character.gender == 'other' %}selected{% endif %}>その他</option>
             </select>
         </label><br>
         <button type="submit">保存</button>
