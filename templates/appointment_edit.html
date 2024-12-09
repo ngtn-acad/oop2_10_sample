@@ -20,27 +20,29 @@
             <select name="user_id" required>
                 <option value="">選択してください</option>
                 {% for user in users %}
-                <option value="{{ user.id }}">{{ user.name }}</option>
+                <option value="{{ user.id }}" {% if user.id == appointment.user.id %}selected{% endif %}>{{ user.name }}</option>
                 {% endfor %}
             </select>
         </label><br><br>
 
-        <label>予約日時: <input type="datetime-local" name="appointment_datetime" required></label><br><br>
+        <label>予約日時: 
+            <input type="datetime-local" name="appointment_datetime" value="{{ appointment_datetime_str }}" required>
+        </label><br><br>
 
         <label>診療科:
             <select name="department" required>
                 <option value="">選択してください</option>
-                <option value="general-medicine">総合診療科</option>
-                <option value="internal-medicine">一般内科</option>
-                <option value="general-surgery">一般外科</option>
-                <option value="pediatric-surgery">小児外科</option>
-                <option value="pediatrics">小児内科</option>
-                <option value="obstetrics-gynecology">産婦人科</option>
-                <option value="ophthalmology">眼科</option>
-                <option value="dermatology">皮膚科</option>
-                <option value="emergency-medicine">救急科</option>
-                <option value="radiology">放射線科</option>
-                <option value="other-centers">その他センター等</option>
+                <option value="general-medicine" {% if appointment.department == 'general-medicine' %}selected{% endif %}>総合診療科</option>
+                <option value="internal-medicine" {% if appointment.department == 'internal-medicine' %}selected{% endif %}>一般内科</option>
+                <option value="general-surgery" {% if appointment.department == 'general-surgery' %}selected{% endif %}>一般外科</option>
+                <option value="pediatric-surgery" {% if appointment.department == 'pediatric-surgery' %}selected{% endif %}>小児外科</option>
+                <option value="pediatrics" {% if appointment.department == 'pediatrics' %}selected{% endif %}>小児内科</option>
+                <option value="obstetrics-gynecology" {% if appointment.department == 'obstetrics-gynecology' %}selected{% endif %}>産婦人科</option>
+                <option value="ophthalmology" {% if appointment.department == 'ophthalmology' %}selected{% endif %}>眼科</option>
+                <option value="dermatology" {% if appointment.department == 'dermatology' %}selected{% endif %}>皮膚科</option>
+                <option value="emergency-medicine" {% if appointment.department == 'emergency-medicine' %}selected{% endif %}>救急科</option>
+                <option value="radiology" {% if appointment.department == 'radiology' %}selected{% endif %}>放射線科</option>
+                <option value="other-centers" {% if appointment.department == 'other-centers' %}selected{% endif %}>その他センター等</option>
             </select>
         </label><br><br>
 

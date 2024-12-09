@@ -23,23 +23,32 @@
             </tr>
         </thead>
         <tbody>
-            {% for medical_condition in items %}
-            <tr>
-                <td><a href="{{ url_for('medical_condition.edit', condition_id=medical_condition.id) }}">編集</a></td>
-                <td>{{ medical_condition.user.name }}</td>
-                <td>
-                    {% set symptoms = {
-                    'fever': '発熱',
-                    'vomiting': '嘔吐',
-                    'headache': '頭痛',
-                    'dizziness': '眩暈',
-                    'other': 'その他'
-                    } %}
-                    {% if medical_condition.condition %}
-                    {{ symptoms[medical_condition.condition] }}
-                    {% endif %}
-                </td>
-            </tr>
+            {% set symptoms = {
+                'fever': '発熱',
+                'vomiting': '嘔吐',
+                'headache': '頭痛',
+                'dizziness': '眩暈',
+                'other': 'その他'
+            } %}
+            
+            {% for user in users %}
+            {% set user_conditions = conditions.get(user.id, []) %}
+            {% if user_conditions|length > 0 %}
+                <tr>
+                    <td><a href="{{ url_for('medical_condition.edit', condition_id=user.id) }}">編集</a></td>
+                    <td>{{ user.name }}</td>
+                    <td>
+                        {% set user_conditions = conditions.get(user.id, []) %}
+                        {% if user_conditions %}
+                            {% for condition in user_conditions %}
+                                {{ symptoms[condition] }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            症状なし
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
             {% endfor %}
         </tbody>
     </table>

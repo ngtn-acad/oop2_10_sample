@@ -36,6 +36,9 @@ def edit(appointment_id):
     if not appointment:
         return redirect(url_for('appointment.list'))
 
+    if isinstance(appointment.appointment_datetime, str):
+        appointment.appointment_datetime = datetime.strptime(appointment.appointment_datetime, '%Y-%m-%dT%H:%M')
+
     if request.method == 'POST':
         appointment.user = request.form['user_id']
         appointment.appointment_datetime = request.form['appointment_datetime']
@@ -44,4 +47,5 @@ def edit(appointment_id):
         return redirect(url_for('appointment.list'))
 
     users = User.select()
-    return render_template('appointment_edit.html', appointment=appointment, users=users)
+    appointment_datetime_str = appointment.appointment_datetime.strftime('%Y-%m-%dT%H:%M') if appointment.appointment_datetime else ''
+    return render_template('appointment_edit.html', appointment=appointment, users=users, appointment_datetime_str=appointment_datetime_str)

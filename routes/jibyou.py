@@ -9,7 +9,6 @@ jibyou_bp = Blueprint('jibyou', __name__, url_prefix='/jibyou')
 def list():
     jibyou = Jibyou.select()
 
-    print("jibyou:",jibyou)
     return render_template('jibyou_list.html', title='持病一覧', items=jibyou)
 
 
@@ -19,14 +18,7 @@ def add():
         user_id = request.form['user_id']
 
         check = request.form.get('condition')  # 探しているものがなければエラーが出ないようにデフォルトの値を返す
-        print("チェックボックスの値:", check)
 
-        print("check",type(check))
-
-        if check != "disease":
-            print("success",check)
-
-        print()
         Jibyou.create(user=user_id,check=bool(check))
         return redirect(url_for('jibyou.list'))
     

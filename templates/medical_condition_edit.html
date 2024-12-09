@@ -28,16 +28,13 @@
         </label><br><br>
 
         <h2>症状を選んでください:</h2>
-        <input type="radio" name="condition" value="fever" {% if condition.condition=="fever" %}checked{% endif %}>
-        発熱<br>
-        <input type="radio" name="condition" value="vomiting" {% if condition.condition=="vomiting" %}checked{% endif
-            %}> 嘔吐<br>
-        <input type="radio" name="condition" value="headache" {% if condition.condition=="headache" %}checked{% endif
-            %}> 頭痛<br>
-        <input type="radio" name="condition" value="dizziness" {% if condition.condition=="dizziness" %}checked{% endif
-            %}> 眩暈<br>
-        <input type="radio" name="condition" value="other" {% if condition.condition=="other" %}checked{% endif
-            %}>その他<br>
+        <label>
+            <input type="checkbox" name="fever" value="fever" {% if condition.fever %}checked{% endif %}> 発熱<br>
+            <input type="checkbox" name="vomiting" value="vomiting" {% if condition.vomiting %}checked{% endif %}> 嘔吐<br>
+            <input type="checkbox" name="headache" value="headache" {% if condition.headache %}checked{% endif %}> 頭痛<br>
+            <input type="checkbox" name="dizziness" value="dizziness" {% if condition.dizziness %}checked{% endif %}> めまい<br>
+            <input type="checkbox" name="other" value="other" {% if condition.other %}checked{% endif %}> その他<br>
+        </label>
         <br>
 
         <button type="submit">更新</button>
