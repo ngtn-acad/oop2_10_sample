@@ -1,11 +1,11 @@
-from peewee import Model, DateTimeField, ForeignKeyField, CharField
+from peewee import *
 from .db import db
 from .user import User
 
 class Appointment(Model):
+    user = ForeignKeyField(User, backref='appointments')  # user_idではなくuserとして定義
     appointment_datetime = DateTimeField()
-    patient = ForeignKeyField(User, backref='appointments')  # UserモデルへのForeignKey
-    department = CharField()  # 診療科フィールドを追加
+    department = CharField()
 
     class Meta:
         database = db 

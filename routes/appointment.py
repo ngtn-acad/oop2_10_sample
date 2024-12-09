@@ -1,28 +1,32 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Appointment, User
+from models.appointment import Appointment
+from models.user import User
 from datetime import datetime
 
 appointment_bp = Blueprint('appointment', __name__, url_prefix='/appointments')
 
 @appointment_bp.route('/')
 def list():
-    appointments = Appointment.select().order_by(Appointment.appointment_datetime)
+    appointments = (Appointment
+                   .select()
+                   .join(User)
+                   .order_by(Appointment.appointment_datetime))
+    
+    for appointment in appointments:
+        if isinstance(appointment.appointment_datetime, str):
+            appointment.appointment_datetime = datetime.strptime(appointment.appointment_datetime, '%Y-%m-%dT%H:%M')
     return render_template('appointment_list.html', title='予約一覧', items=appointments)
 
 @appointment_bp.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        date = request.form['date']
-        time = request.form['time']
-        appointment_datetime = datetime.strptime(f"{date} {time}", '%Y-%m-%d %H:%M')
-        
         Appointment.create(
-            appointment_datetime=appointment_datetime,
-            patient_id=request.form['patient_id'],
+            user=request.form['user_id'],
+            appointment_datetime=request.form['appointment_datetime'],
             department=request.form['department']
         )
         return redirect(url_for('appointment.list'))
-    
+
     users = User.select()
     return render_template('appointment_add.html', users=users)
 
@@ -33,15 +37,11 @@ def edit(appointment_id):
         return redirect(url_for('appointment.list'))
 
     if request.method == 'POST':
-        date = request.form['date']
-        time = request.form['time']
-        appointment_datetime = datetime.strptime(f"{date} {time}", '%Y-%m-%d %H:%M')
-        
-        appointment.appointment_datetime = appointment_datetime
-        appointment.user_id = request.form['user_id']
+        appointment.user = request.form['user_id']
+        appointment.appointment_datetime = request.form['appointment_datetime']
         appointment.department = request.form['department']
         appointment.save()
-        
         return redirect(url_for('appointment.list'))
 
-    return render_template('appointment_edit.html', appointment=appointment)
+    users = User.select()
+    return render_template('appointment_edit.html', appointment=appointment, users=users)
