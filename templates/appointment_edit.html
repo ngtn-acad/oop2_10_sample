@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>予約編集</title>
+    <title>予約の編集</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 
 <body>
-    <h1>予約を編集</h1>
+    <h1>予約の編集</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
         <li><a href="{{ url_for('appointment.list') }}">予約一覧</a></li>
@@ -16,26 +16,35 @@
     </ul>
 
     <form action="{{ url_for('appointment.edit', appointment_id=appointment.id) }}" method="post">
-        <label>日付: <input type="date" name="date" value="{{ appointment.appointment_datetime.strftime('%Y-%m-%d') }}"
-                required></label><br>
-        <label>時間: <input type="time" name="time" value="{{ appointment.appointment_datetime.strftime('%H:%M') }}"
-                required></label><br>
-        <label>患者名: <input type="text" name="patient_name" value="{{ appointment.patient_name }}" required></label><br>
-        <h2>どちらの診療科での受診を希望されますか?</h2>
-        <select name="pets" id="pet-select">
-            <option value="general-medicine">総合診療科</option>
-            <option value="internal-medicine">一般内科</option>
-            <option value="general-surgery">一般外科</option>
-            <option value="pediatric-surgery">小児外科</option>
-            <option value="pediatrics">小児内科</option>
-            <option value="obstetrics-gynecology">産婦人科</option>
-            <option value="ophthalmology">眼科</option>
-            <option value="dermatology">皮膚科</option>
-            <option value="emergency-medicine">救急科</option>
-            <option value="radiology">放射線科</option>
-            <option value="other-centers">その他センター等</option>
-        </select>
-        <br><br><button type="submit">保存</button>
+        <label>患者名:
+            <select name="user_id" required>
+                <option value="">選択してください</option>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+
+        <label>予約日時: <input type="datetime-local" name="appointment_datetime" required></label><br><br>
+
+        <label>診療科:
+            <select name="department" required>
+                <option value="">選択してください</option>
+                <option value="general-medicine">総合診療科</option>
+                <option value="internal-medicine">一般内科</option>
+                <option value="general-surgery">一般外科</option>
+                <option value="pediatric-surgery">小児外科</option>
+                <option value="pediatrics">小児内科</option>
+                <option value="obstetrics-gynecology">産婦人科</option>
+                <option value="ophthalmology">眼科</option>
+                <option value="dermatology">皮膚科</option>
+                <option value="emergency-medicine">救急科</option>
+                <option value="radiology">放射線科</option>
+                <option value="other-centers">その他センター等</option>
+            </select>
+        </label><br><br>
+
+        <button type="submit">更新</button>
     </form>
 </body>
 

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Jibyou,Order,Product,User
+from models import Jibyou, User
 
 # Blueprintの作成
 jibyou_bp = Blueprint('jibyou', __name__, url_prefix='/jibyou')
