@@ -21,6 +21,7 @@
                 <th>&nbsp;</th>
                 <th>予約日時</th>
                 <th>患者名</th>
+                <th>診療科</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +29,8 @@
             <tr>
                 <td><a href="{{ url_for('appointment.edit', appointment_id=appointment.id) }}">編集</a></td>
                 <td>{{ appointment.appointment_datetime.strftime('%Y-%m-%d %H:%M') }}</td>
-                <td>{{ appointment.patient_name }}</td>
+                <td>{{ appointment.patient.name }}</td>
+                <td>{{ appointment.department }}</td>
             </tr>
             {% endfor %}
         </tbody>
