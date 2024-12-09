@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Appointment
+from models import appointment
 from datetime import datetime
 
 appointment_bp = Blueprint('appointment', __name__, url_prefix='/appointments')
