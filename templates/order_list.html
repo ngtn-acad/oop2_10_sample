@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>投稿一覧</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base-style.css') }}"
+    />
+  </head>
+  <body>
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
-        <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('articles.list') }}">投稿一覧</a></li>
+      <li><a href="{{ url_for('index') }}">HOME</a></li>
+      <li><a href="{{ url_for('push.list') }}">投稿一覧</a></li>
     </ul>
 
     <a href="{{ url_for('push.add') }}">新規投稿追加</a>
     <table>
-        <thead>
-            <tr>
-                <th>&nbsp;</th>
-                <th>投稿者</th>
-                <th>タイトル</th>
-                <th>投稿日</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for article in items %}
-            <tr>
-                <td><a href="{{ url_for('push.edit', article_id=article.id) }}">編集</a></td>
-                <td>{{ article.user.name }}</td>
-                <td>{{ articles.title }}</td>
-                <td>{{ articles.created.at }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>投稿者</th>
+          <th>タイトル</th>
+          <th>タグ</th>
+          <th>投稿日</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for postData in items %}
+        <tr>
+          <td>
+            <a href="{{ url_for('push.edit', postData_id=postData.id) }}"
+              >編集</a
+            >
+          </td>
+          <td>{{ postData.user.name }}</td>
+          <td>{{ postData.title }}</td>
+          <td>{{ postData.tag.word }}</td>
+          <td>{{ postData.created_at }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-</body>
+  </body>
 </html>

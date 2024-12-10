@@ -13,7 +13,7 @@
         <li>投稿の編集</li>
     </ul>
 
-    <form action="{{ url_for('order.edit', order_id=order.id) }}" method="post">
+    <form action="{{ url_for('push.edit', article_id=article.id) }}" method="post">
         <label>投稿者: 
             <select name="user_id" required>
                 {% for user in users %}
@@ -22,9 +22,9 @@
             </select>
         </label><br>
         <label>タイトル: 
-            <select name="product_id" required>
-                {% for product in products %}
-                    <option value="{{ product.id }}" {% if order.product.id == product.id %}selected{% endif %}>{{ product.name }}</option>
+            <select name="title" required>
+                {% for article in articles %}
+                    <option value="{{ article.id }}">{{ article.title }}</option>
                 {% endfor %}
             </select>
         </label><br>
