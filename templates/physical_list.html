@@ -11,10 +11,10 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('user.list') }}">ユーザー一覧</a></li>
+        <li><a href="{{ url_for('physical.list') }}">体調管理アンケート</a></li>
     </ul>
 
-    <a href="{{ url_for('user.add') }}">新規ユーザー追加</a>
+    <a href="{{ url_for('physical.add') }}">新規アンケート追加</a>
     <table>
         <thead>
             <tr>
@@ -26,13 +26,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for user in items %}
+            {% for physical in items %}
             <tr>
-                <td><a href="{{ url_for('user.edit', user_id=user_tb.user_id) }}">編集</a></td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.body }}</td>
-                <td>{{ user.lllness }}</td>
-                <td>{{ user.Detauks of ill health }}</td>
+                <td><a href="{{ url_for('physical.edit', physical_id=Physical_tb.physical_id) }}">編集</a></td>
+                <td>{{ physical.user_id }}</td>
+                <td>{{ physical.task }}</td>
+                <td>{{ physical.bad_good }}</td>
+                <td>{{ physical.bad_content }}</td>
             </tr>
             {% endfor %}
         </tbody>
