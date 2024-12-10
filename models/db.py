@@ -8,28 +8,28 @@ class BaseModel(Model):
     class Meta:
         database = db
 
-# class User_tb(BaseModel):
-#     # user_id = IntegerField()
-#     username = CharField()
-#     age = IntegerField()
+class User_tb(BaseModel):
+    # user_id = IntegerField()
+    username = CharField()
+    age = IntegerField()
    
-# class Task_tb(BaseModel):
-#     task_id = IntegerField()
-#     user_id = IntegerField()
-#     task_name = CharField()
-#     task_content = CharField()
+class Task_tb(BaseModel):
+    task_id = IntegerField()
+    user_id = IntegerField()
+    task_name = CharField()
+    task_content = CharField()
 
-# class Physical_tb(BaseModel):
-#     physical_id =  IntegerField()
-#     user_id = IntegerField()
-#     temp = DoubleField()
-#     bad_good = BooleanField(default=True)
-#     bad_content = CharField()
+class Physical_tb(BaseModel):
+    physical_id =  IntegerField()
+    user_id = IntegerField()
+    temp = DoubleField()
+    bad_good = BooleanField(default=True)
+    bad_content = CharField()
 
-# # データベース接続とテーブル作成
-# db.connect()
-# db.create_tables([User_tb])
-# db.create_tables([Task_tb])
-# db.create_tables([Physical_tb])
+# データベース接続とテーブル作成
+db.connect()
+db.create_tables([User_tb])
+db.create_tables([Task_tb])
+db.create_tables([Physical_tb])
 
-# db.close()
+db.close()
