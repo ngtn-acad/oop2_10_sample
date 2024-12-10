@@ -26,9 +26,9 @@
             {% for task in items %}
             <tr>
                 <td><a href="{{ url_for('task.edit', task_id=task.id) }}">編集</a></td>
-                <td>{{ task.usar.name }}</td>
-                <td>{{ task.type }}</td>
-                <td>{{ task.content }}</td>
+                <td>{{ task.user_id.username }}</td>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.task_content }}</td>
             </tr>
             {% endfor %}
         </tbody>
