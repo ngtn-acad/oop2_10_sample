@@ -1,44 +1,45 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import Order, User, Product
+from models import Physical, User, Task
 from models.db import db
 from datetime import datetime
 
 # Blueprintの作成
-order_bp = Blueprint('order', __name__, url_prefix='/orders')
+physical_bp = Blueprint('physical', __name__, url_prefix='/physicals')
 
 
-@order_bp.route('/')
+@physical_bp.route('/')
 def list():
-    orders = Order.select()
-    return render_template('order_list.html', title='体調一覧', items=orders)
+    physical = Physical.select()
+    print(physical)
+    return render_template('physical_list.html', title='体調一覧', items=physical)
 
 
-@order_bp.route('/add', methods=['GET', 'POST'])
+@physical_bp.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
         user_tb = request.form['user_id']
         task_tb = request.form['task_tb']
         physical_tb = datetime.now()
-        Order.create(user=user_tb, task=task_tb, order_date=order_date)
-        return redirect(url_for('order.list'))
+        Physical.create(user=user_tb, task=task_tb, physical_date=physical_tb)
+        return redirect(url_for('physical_list.html'))
     
     users = User.select()
-    products = Product.select()
-    return render_template('order_add.html', users=users, products=products)
+    task= Task.select()
+    return render_template('physical_add.html', users=users, task=task)
 
 
-@order_bp.route('/edit/<int:order_id>', methods=['GET', 'POST'])
-def edit(order_id):
-    order = Order.get_or_none(Order.id == order_id)
-    if not order:
-        return redirect(url_for('order.list'))
+@physical_bp.route('/edit/<int:order_id>', methods=['GET', 'POST'])
+def edit(physical_id):
+    physical = Physical.get_or_none(Physical.id == physical_id)
+    if not physical:
+        return redirect(url_for('physical_list.html'))
 
     if request.method == 'POST':
-        order.user = request.form['user_id']
-        order.product = request.form['product_id']
-        order.save()
-        return redirect(url_for('order.list'))
+        physical.user_id = request.form['user_id']
+        physical.product = request.form['product_id']
+        physical.save()
+        return redirect(url_for('physical_list.html'))
 
     users = User.select()
-    products = Product.select()
-    return render_template('order_edit.html', order=order, users=users, products=products)
+    task = Task.select()
+    return render_template('physical_edit.html', physical=physical, users=users, task=task)
