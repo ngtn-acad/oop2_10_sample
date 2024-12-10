@@ -34,7 +34,7 @@ def edit(order_id):
 
     if request.method == "POST":
         order.customer = request.form["customer_id"]
-        order.good = request.form["good_id"]
+        order.goods = request.form["goods_id"]
         order.save()
         return redirect(url_for("order.list"))
 
