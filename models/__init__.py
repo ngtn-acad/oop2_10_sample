@@ -4,6 +4,7 @@ from .tag import Tag
 from .article import Article
 from .product import Product
 from .order import Order
+from .postData import PostData
 
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
 MODELS = [
@@ -11,7 +12,8 @@ MODELS = [
     Article,
     Tag,
     Product,
-    Order
+    Order,
+    PostData
     
 ]
 

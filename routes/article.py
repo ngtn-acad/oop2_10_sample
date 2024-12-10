@@ -19,12 +19,10 @@ def add():
     if request.method == 'POST':
         title = request.form['title']
         tag_id = request.form['tag_id']
-        users = User.select()
 
-        user_id = ""
 
         created_at = datetime.now()
-        Article.create(user = user_id,title=title, tag=tag_id , created_at = created_at)
+        Article.create(title=title, tag=tag_id , created_at = created_at)
         
         return redirect(url_for('article.list'))
     

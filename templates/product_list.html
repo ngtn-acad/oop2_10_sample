@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>投稿一覧</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base-style.css') }}"
+    />
+  </head>
+  <body>
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
-        <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('article.list') }}">投稿一覧</a></li>
+      <li><a href="{{ url_for('index') }}">HOME</a></li>
+      <li><a href="{{ url_for('article.list') }}">投稿一覧</a></li>
     </ul>
 
     <a href="{{ url_for('article.add') }}">新規投稿追加</a>
     <table>
-        <thead>
-            <tr>
-                <th>&nbsp;</th>t
-                <th>タイトル</th>
-                <th>タグ</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in items %}
-            <tr>
-                <td><a href="{{ url_for('article.edit', article_id = item.id )}}">編集</a></td>
-                <td>{{ item.title }}</td>
-                <td>{{ item.tag.word }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>タイトル</th>
+          <th>タグ</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>
+            <a href="{{ url_for('article.edit', article_id = item.id )}}"
+              >編集</a
+            >
+          </td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.tag.word }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-</body>
+  </body>
 </html>
