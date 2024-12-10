@@ -16,8 +16,8 @@
     <form action="{{ url_for('order.edit', order_id=order.id) }}" method="post">
         <label>テーブル番号: 
             <select name="customer_id" required>
-                {% for custmer in custmers %}
-                    <option value="{{ custmer.id }}" {% if order.custmer.id == custmer.id %}selected{% endif %}>{{ custmer.table }}</option>
+                {% for customer in customers %}
+                    <option value="{{ customer.id }}" {% if order.customer.id == customer.id %}selected{% endif %}>{{ customer.table }}</option>
                 {% endfor %}
             </select>
         </label><br>
