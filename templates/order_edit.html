@@ -24,7 +24,7 @@
         <label>寿司: 
             <select name="goods_id" required>
                 {% for good in goods %}
-                    <option value="{{ good.id }}" {% if order.good.id == good.id %}selected{% endif %}>{{ good.name }}</option>
+                    <option value="{{ goods.id }}" {% if order.goods.id == goods.id %}selected{% endif %}>{{ goods.name }}</option>
                 {% endfor %}
             </select>
         </label><br>

@@ -29,7 +29,7 @@
             >寿司: 
             <select name="goods_id" required>
               {% for good in goods %}
-              <option value="{{ good.id }}">{{ good.name }}</option>
+              <option value="{{ goods.id }}">{{ goods.name }}</option>
               {% endfor %}
           </select> </label
         ><br />
