@@ -18,7 +18,7 @@
         <label>攻撃力: <input type="number" step="1" name="attackpower" value="{{ weapon.attackpower }}" required></label><br>
         <label>武器タイプ: <select name="attribute" required>
             <option value="剣">剣</option>
-            <option value="杖">杖</option>
+            <option value="杖"{% if weapon.attribute=="杖" %}selected{% endif %}>杖</option>
         </select></label><br>
         <button type="submit">保存</button>
     </form>
