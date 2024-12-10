@@ -20,8 +20,8 @@
         <label
           >テーブル番号: 
           <select name="customer_id" required>
-            {% for customers in customer %}
-            <option value="{{ customer_id }}">{{ customer.table }}</option>
+            {% for customer in customers %}
+            <option value="{{ customer.id }}">{{ customer.table }}</option>
             {% endfor %}
           </select> </label
           ><br />
@@ -29,7 +29,7 @@
             >寿司: 
             <select name="goods_id" required>
               {% for good in goods %}
-              <option value="{{ goods_id }}">{{ good.name }}</option>
+              <option value="{{ good.id }}">{{ good.name }}</option>
               {% endfor %}
           </select> </label
         ><br />
