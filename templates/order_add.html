@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8"/>
     <title>注文追加</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
-</head>
-<body>
+    <link 
+      rel="stylesheet" 
+      href="{{ url_for('static', filename='base-style.css') }}"
+    />
+  </head>
+  <body>
     <h1>新しい注文を追加</h1>
     <ul class="breadcrumb">
-        <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('order.list') }}">注文一覧</a></li>
-        <li>新規注文</li>
+      <li><a href="{{ url_for('index') }}">HOME</a></li>
+      <li><a href="{{ url_for('order.list') }}">注文一覧</a></li>
+      <li>新規注文</li>
     </ul>
     
     <form action="{{ url_for('order.add') }}" method="post">
-        <label>テーブル番号: 
-            <select name="customer_id" required>
-                {% for customers in customer %}
-                    <option value="{{ customer_id }}">{{ customers.table }}</option>
-                {% endfor %}
-            </select>
-        </label><br>
-        <label>寿司: 
+        <label
+          >テーブル番号: 
+          <select name="customer_id" required>
+            {% for customer in customers %}
+            <option value="{{ customer.id }}">{{ customer.table }}</option>
+            {% endfor %}
+          </select> </label
+          ><br />
+          <label
+            >寿司: 
             <select name="goods_id" required>
-                {% for good in goods %}
-                    <option value="{{ goods_id }}">{{ good.name }}</option>
-                {% endfor %}
-            </select>
-        </label><br>
+              {% for good in goods %}
+              <option value="{{ good.id }}">{{ good.name }}</option>
+              {% endfor %}
+          </select> </label
+        ><br />
         <button type="submit">追加</button>
-    </form>
-</body>
-</html>
+      </form>
+    </body>
+  </html>
