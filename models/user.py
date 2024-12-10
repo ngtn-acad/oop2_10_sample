@@ -1,8 +1,7 @@
-from peewee import Model, CharField, IntegerField
+from peewee import Model, CharField, IntegerField, PrimaryKeyField
 from .db import db
 
 class User(Model):
-    user_id = IntegerField()
     username = CharField()
     age = IntegerField()
 

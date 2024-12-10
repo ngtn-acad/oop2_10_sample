@@ -7,7 +7,8 @@ task_bp = Blueprint('task', __name__, url_prefix='/tasks')
 
 @task_bp.route('/')
 def list():
-    tasks = Task.select()
+    tasks = Task.select().join(User, on=(Task.user_id == User.id))
+
     return render_template('task_list.html', title='業務記録', items=tasks)
 
 
@@ -18,10 +19,9 @@ def list():
 
 @task_bp.route('/add', methods=['GET', 'POST'])
 def add():
-
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
-        user_id = request.form['user_id']
+        user_id = int(request.form['user_id'])
         task_name = request.form['task_name']
         task_content = request.form['task_content']
         Task.create(user_id=user_id, task_name=task_name, task_content=task_content)
