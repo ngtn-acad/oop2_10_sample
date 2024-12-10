@@ -9,7 +9,7 @@ class BaseModel(Model):
         database = db
 
 class User_tb(BaseModel):
-    # user_id = IntegerField()
+    user_id = IntegerField()
     username = CharField()
     age = IntegerField()
    
