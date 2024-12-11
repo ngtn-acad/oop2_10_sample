@@ -35,7 +35,7 @@ def add():
 
 @test_bp.route('/edit/<int:test_id>', methods=['GET', 'POST'])
 def edit(test_id):
-    test = test.get_or_none(test.id == test_id)
+    test = Test.get_or_none(Test.id == test_id)
     if not test:
         return redirect(url_for('test.list'))
 
@@ -46,4 +46,4 @@ def edit(test_id):
         test.save()
         return redirect(url_for('test.list'))
 
-    return render_template('test_edit.html', test=test)
+    return render_template('test_edit.html', test=test, users=User.select())
