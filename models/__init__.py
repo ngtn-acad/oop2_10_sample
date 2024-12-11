@@ -5,7 +5,7 @@ from .product import Product
 from .order import Order
 from .commute import Commute
 from .lunch import Lunch
-from .parttimer import Parttimer
+from .parttimer import PartTimer
 from .student_info import Student_info
 
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
@@ -15,7 +15,7 @@ MODELS = [
     Order,
     Commute,
     Lunch,
-    Parttimer,
+    PartTimer,
     Student_info,
 ]
 
