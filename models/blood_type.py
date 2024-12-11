@@ -3,7 +3,7 @@ from .db import db
 
 class Blood_type(Model):
     name = CharField()
-    price = DecimalField()
+    blood_type = CharField()
 
     class Meta:
         database = db
