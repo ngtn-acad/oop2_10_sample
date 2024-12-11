@@ -11,7 +11,7 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('physical.list') }}">体調管理アンケート</a></li>
+        <li><a href="{{ url_for('physical.list') }}">アンケート一覧</a></li>
     </ul>
 
     <a href="{{ url_for('physical.add') }}">新規アンケート追加</a>
@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>&nbsp;</th>
-                <th>ユーザーID</th>
+                <th>ユーザー</th>
                 <th>体温</th>
                 <th>体調不良があるか</th>
                 <th>体調不良の内容</th>
@@ -28,11 +28,11 @@
         <tbody>
             {% for physical in items %}
             <tr>
-                <td><a href="{{ url_for('physical.edit', physical_id=Physical_tb.physical_id) }}">編集</a></td>
-                <td>{{ physical.user_id }}</td>
-                <td>{{ physical.task }}</td>
-                <td>{{ physical.bad_good }}</td>
-                <td>{{ physical.bad_content }}</td>
+                <td><a href="{{ url_for('physical.edit', physical_id=physical.id) }}">編集</a></td>
+                <td>{{ physical.user.username }}</td>
+                <td>{{ "%.1f"|format(physical.temp) }}</td>
+                <td>{{ 'ある' if physical.bad_good else 'ない' }}</td>
+                <td>{{ physical.bad_content or '' }}</td>
             </tr>
             {% endfor %}
         </tbody>

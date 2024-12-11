@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models import User
-from models.db import db
 
 # Blueprintの作成
 user_bp = Blueprint('user', __name__, url_prefix='/users')
@@ -17,7 +16,7 @@ def list():
 
 @user_bp.route('/add', methods=['GET', 'POST'])
 def add():
-    print("\n\n\n\n"+request.method+"\n\n\n\n\n")
+    # print("\n\n\n\n"+request.method+"\n\n\n\n\n")
     if request.method == 'POST':
         username = request.form['username']
         age = int(request.form['age'])
