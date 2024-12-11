@@ -7,15 +7,9 @@ task_bp = Blueprint('task', __name__, url_prefix='/tasks')
 
 @task_bp.route('/')
 def list():
-    tasks = Task.select().join(User, on=(Task.user_id == User.id))
+    tasks = Task.select()
+    return render_template('task_list.html', title='業務記録一覧', items=tasks)
 
-    return render_template('task_list.html', title='業務記録', items=tasks)
-
-
-# @task_bp.route('/task/add')
-# def add():
-#     User = User.select()
-#     return render_template('task_add.html', title='業務追加', items=User)
 
 @task_bp.route('/add', methods=['GET', 'POST'])
 def add():
@@ -24,7 +18,7 @@ def add():
         user_id = int(request.form['user_id'])
         task_name = request.form['task_name']
         task_content = request.form['task_content']
-        Task.create(user_id=user_id, task_name=task_name, task_content=task_content)
+        Task.create(user=user_id, task_name=task_name, task_content=task_content)
         return redirect(url_for('task.list'))
     
     users = User.select()
@@ -38,7 +32,7 @@ def edit(task_id):
         return redirect(url_for('task.list'))
 
     if request.method == 'POST':
-        task.user_id = request.form['user_id']
+        task.user = request.form['user_id']
         task.task_name = request.form['task_name']
         task.task_content = request.form['task_content']
         task.save()
