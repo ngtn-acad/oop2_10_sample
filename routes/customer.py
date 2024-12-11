@@ -11,7 +11,7 @@ def list():
     # データ取得
     customers = Customer.select()
 
-    return render_template('custoer_list.html', title='客リスト', items=customers)
+    return render_template('customer_list.html', title='客リスト', items=customers)
 
 
 @customer_bp.route('/add', methods=['GET', 'POST'])
@@ -36,7 +36,7 @@ def edit(customer_id):
     if request.method == 'POST':
         customer.name = request.form['name']
         customer.numPeople = request.form['numPeople']
-        customert.save()
+        customer.save()
         return redirect(url_for('customer.list'))
 
     return render_template('customer_edit.html', customer=customer)

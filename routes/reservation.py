@@ -3,6 +3,9 @@ from models.reservation import Reservation
 
 # Blueprintの作成
 reservation_bp = Blueprint('reservation', __name__, url_prefix='/reservations')
+food_bp = Blueprint('food', __name__, url_prefix='/food')
+drink_bp = Blueprint('drink', __name__, url_prefix='/drink')
+customer_bp = Blueprint('customer', __name__, url_prefix='/customer')
 
 
 @reservation_bp.route('/')
@@ -48,7 +51,7 @@ def edit(drink_number):
 
 
 #顧客名の編集
-@customer_bp.routes('/edit/<int:customer_id',methods=['GET','POST'])
+@customer_bp.route('/edit/<int:customer_id',methods=['GET','POST'])
 def edit(customer_id):
      customer = Customer.get_or_none(Customer.id == customer_id)
      if not customer:
