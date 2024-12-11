@@ -1,5 +1,19 @@
+from flask import Blueprint, render_template, request, redirect, url_for
+from models.reservation import Reservation
+
+# Blueprintの作成
+reservation_bp = Blueprint('reservation', __name__, url_prefix='/reservations')
 
 
+@reservation_bp.route('/')
+def list():
+    
+    # データ取得
+    reservations = Reservation.select()
+
+    return render_template('reservation_list.html', title='予約リスト', items=reservations)
+
+  
 #フード商品の編集
 @food_bp.route('/edit/<int:food_number>', methods=['GET', 'POST'])
 def edit(food_number):
@@ -46,4 +60,5 @@ def edit(customer_id):
         customer.save()
         return redirect(url_for('customer.list'))
 
-     return render_template('customer_edit.html', customer=customer)                                                                                                                                                                                                                                                                                                                                                                                            
+     return render_template('customer_edit.html', customer=customer)     
+  
