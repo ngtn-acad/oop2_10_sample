@@ -7,3 +7,4 @@ class User(Model):
 
     class Meta:
         database = db
+# 削除予定

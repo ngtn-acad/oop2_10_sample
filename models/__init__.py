@@ -1,7 +1,7 @@
 from peewee import SqliteDatabase
 from .db import db
-from .user import User
-from .order import Order
+# s
+# from .order import Order
 from .food import Food
 from .drink import Drink
 from .customer import Customer
@@ -9,9 +9,8 @@ from .reservation import Reservation
 
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
 MODELS = [
-    User,
-    customer,
-    Order,
+    # User,
+    # Order,
     Food,
     Drink,
     Customer,
