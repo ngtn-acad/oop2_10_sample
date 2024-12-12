@@ -18,7 +18,6 @@
 </body>
 
 </html>
-<li><a href="{{ url_for('reservation.list') }}">製品一覧</a></li>
 
 </ul>
 <a href="{{ url_for('reservation.add') }}">新規予約追加</a>
@@ -29,7 +28,6 @@
             <th>名前</th>
             <th>フード商品名</th>
             <th>ドリンク商品名</th>
-            <th>合計金額<th>
         </tr>
     </thead>
     <tbody>
@@ -39,7 +37,7 @@
             <td>{{ customer.name }}</td>
             <td>{{ food.name }}</td>
             <td>{{ drink.name }}</td>
-
+            
         </tr>
         {% endfor %}
     </tbody>
