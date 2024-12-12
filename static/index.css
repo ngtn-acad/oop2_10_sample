@@ -32,3 +32,67 @@ main {
 #map {
   height: 50vh;
 }
+
+.most_eaten_ranking {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.most_eaten_ranking .ranking {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.most_eaten_ranking .card {
+  display: flex;
+  border: 1px solid #000;
+}
+
+.most_eaten_ranking .header {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+
+.most_eaten_ranking .ranking {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.most_eaten_ranking .card {
+  display: flex;
+  border: 1px solid #000;
+}
+
+.most_eaten_ranking .header {
+  display: flex;
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.most_eaten_ranking .cell {
+  flex: 1;
+  padding: 8px;
+  text-align: left;
+  border-right: 1px solid #000;
+}
+
+.restaurant_score_ranking .card{
+  width: 150px;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.restaurant_score_ranking .ranking{
+  display: flex;
+  gap: 10px;
+}
+
+.restaurant_score_ranking .index{
+  font-size: 40px;
+  
+}
