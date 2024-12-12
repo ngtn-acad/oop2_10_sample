@@ -3,8 +3,9 @@ from .db import db
 from .user import User  # Userモデルをインポート
 
 class Test(Model):
-    name = CharField()  # 教科名
-    score = IntegerField()  # 点数
+    japanese = IntegerField()  # 点数
+    math = IntegerField()  # 点数
+    english = IntegerField()  # 点数
     user = ForeignKeyField(User, backref='tests')  # Userモデルとのリレーション
 
     class Meta:
