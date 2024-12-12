@@ -1,6 +1,9 @@
 from flask import Flask, render_template
 from models import initialize_database
 from routes import blueprints
+from routes.graphs import fetch_sleep_test_data, create_graph
+
+import plotly.graph_objects as go
 
 app = Flask(__name__)
 
@@ -11,10 +14,15 @@ initialize_database()
 for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
+fetch_sleep_test_data()
+create_graph()
+
 # ホームページのルート
 @app.route('/')
 def index():
-    return render_template('index.html')
+    graph = create_graph()
+    return render_template('index.html', graph = graph)
+
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)

@@ -2,21 +2,25 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <title>データ一覧</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+    <meta charset="UTF-8">
+    <title>データ一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-  <h1>生徒情報</h1>
-  <ul>
-  <dev class="container">
-    <li><a href="{{ url_for('user.list') }}">生徒名簿･年齢</a></li>
-    <li><a href="{{ url_for('test.list') }}">テスト点数</a></li>
-    <li><a href="{{ url_for('sleep.list') }}">睡眠情報</a></li>
-  </dev>
-  </ul>
-  
+    <h1>生徒情報</h1>
+    <ul>
+        <dev class="container">
+            <li><a href="{{ url_for('user.list') }}">生徒名簿･年齢</a></li>
+            <li><a href="{{ url_for('test.list') }}">テスト点数</a></li>
+            <li><a href="{{ url_for('sleep.list') }}">睡眠情報</a></li>
+        </dev>
+    </ul>
+
+    {{ graph | safe }}
+
+
 </body>
 
 </html>
