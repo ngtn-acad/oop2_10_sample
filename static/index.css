@@ -13,12 +13,12 @@ aside {
   box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
 }
 
-aside>ul>li {
+aside > ul > li {
   margin-block: 10px;
   list-style: none;
 }
 
-aside>ul>li a {
+aside > ul > li a {
   text-decoration: none;
   color: #333;
 }
@@ -29,7 +29,8 @@ main {
   gap: 10px;
 }
 
-main > section {
+#map {
+  height: 50vh;
 }
 
 

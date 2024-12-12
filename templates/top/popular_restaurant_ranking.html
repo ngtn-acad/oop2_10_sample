@@ -1,1 +1,11 @@
-<section>人気な店ランキング</section>
+<section>人気な店ランキング
+
+    {% for restaurant in restaurant_ranking %}
+    <div>
+        <p>{{ loop.index }}位</p>
+        <p>店舗名 : {{ restaurant.restaurant.name }}</p>
+        <p>評価平均 : {{ restaurant.evaluation }}</p>
+    </div>
+    {% endfor %}
+</section>
+
