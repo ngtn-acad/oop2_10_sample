@@ -44,4 +44,4 @@ def edit(postData_id):
 
     users = User.select()
     articles = Article.select()
-    return render_template('order_edit.html', articles = articles, users=users)
+    return render_template('order_edit.html', articles = articles, users=users , article=article)
