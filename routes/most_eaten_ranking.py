@@ -1,6 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from models import Restaurant,Food,User
-from datetime import datetime 
+from models import Food
 from peewee import fn
 
 def most_eaten_ranking():
