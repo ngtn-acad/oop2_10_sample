@@ -19,6 +19,52 @@
                 <li><a href="{{ url_for('order.list') }}">貸出中</a></li>
             </ul>
         </nav>
+    
+    //月毎の貸し出し冊数のグラフを表示する
+    <body>
+    <h2>月毎の貸し出し冊数</h2>
+    <ccanvas id="book_count" width="400" heig="200"></ccanvas>
+    <script>
+        // Pythonから受け取るデータ
+        const dataX = {{ month | tojson }};
+        const dataY = {{ book_count | tojson }};
+
+            //グラフの作成
+            const ctx = document.getElementById('book_count').getContext('2d');
+            const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dataX,
+                datasets: [{
+                    label: 'Sample Line Chart',
+                    data: dataY,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'X-axis'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Y-axis'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    </body>    
+    
     </main>
 
     <footer>
