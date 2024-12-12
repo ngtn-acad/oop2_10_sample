@@ -21,8 +21,9 @@
             <tr>
                 <th>&nbsp;</th>
                 <th>ユーザー名</th>
-                <th>教科名</th>
-                <th>点数</th>
+                <th>国語</th>
+                <th>数学</th>
+                <th>英語</th>
             </tr>
     </thead>
     <tbody>
@@ -30,8 +31,9 @@
         <tr>
             <td><a href="{{ url_for('test.edit', test_id=test.id) }}">編集</a></td>
             <td>{{ test.user.name }}</td> <!-- ユーザー名 -->
-            <td>{{ test.name }}</td> <!-- 教科名 -->
-            <td>{{ test.score }}</td> <!-- 点数 -->
+            <td>{{ test.japanese}}</td> 
+            <td>{{ test.math}}</td> 
+            <td>{{test.english}}</td>
         </tr>
         {% endfor %}
 

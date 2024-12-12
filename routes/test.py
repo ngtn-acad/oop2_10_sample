@@ -13,9 +13,13 @@ def list():
 @test_bp.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        user_id = request.form['user_id']  # ユーザーID
-        test_id = request.form['test_id']  # 教科ID
-        score = request.form['score']  # 点数
+        user_id = request.form['user_id'] 
+        # ユーザーID
+        
+        #国語の点数        
+        japanese = request.form['japanese']  # 日本語の点数
+        math = request.form['math']
+        english = request.form['english']
         """
         print(f"Received test_id: {test_id}")  # 送信されたtest_idをログに出力
 
@@ -27,7 +31,7 @@ def add():
         print(f"Selected test: {selected_test.name}")  # 選択された教科をログに出力
         """
         # Testデータの作成
-        Test.create(user_id=user_id, name=test_id, score=score)
+        Test.create(user_id=user_id, japanese=japanese, math=math , english=english)
         return redirect(url_for('test.list'))  # テストデータ一覧ページにリダイレクト
 
     users = User.select()  # ユーザーリストを取得
@@ -41,8 +45,9 @@ def edit(test_id):
 
     if request.method == 'POST':
         test.user = request.form['user_id']
-        test.name = request.form['test_id']
-        test.score = request.form['score']
+        test.japanese = request.form['japanese']
+        test.math = request.form['math']
+        test.english = request.form['english']
         test.save()
         return redirect(url_for('test.list'))
 
