@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>図書館</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 <body>
@@ -19,51 +20,52 @@
                 <li><a href="{{ url_for('order.list') }}">貸出中</a></li>
             </ul>
         </nav>
-    
-    <body>
-    <h2>月毎の貸し出し冊数</h2>
-    <ccanvas id="book_count" width="400" heig="200"></ccanvas>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Pythonから受け取るデータ
-        const dataX = {{ month | tojson }};
-        const dataY = {{ book_count | tojson }};
 
-            //グラフの作成
+        <h2>月毎の貸し出し冊数</h2>
+        <canvas id="book_count" width="400" height="200"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Pythonから受け取るデータ
+            const monthData = {{ month_data | tojson(default=[]) }};
+            
+            // データを分解
+            const dataX = monthData.map(item => item.month); // 月
+            const dataY = monthData.map(item => item.book_count); // 貸出冊数
+
+            // グラフの作成
             const ctx = document.getElementById('book_count').getContext('2d');
             const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: dataX,
-                datasets: [{
-                    label: 'Sample Line Chart',
-                    data: dataY,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: '月'
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: '貸出冊数'
+                type: 'line',
+                data: {
+                    labels: dataX, // X軸
+                    datasets: [{
+                        label: '貸し出し冊数',
+                        data: dataY, // Y軸
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '月' // X軸のタイトル
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '貸出冊数' // Y軸のタイトル
+                            }
                         }
                     }
                 }
-            }
-        });
-    </script>
-    </body>    
+            });
+        </script>
     
     </main>
 
