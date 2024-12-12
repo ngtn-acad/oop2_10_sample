@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 from models import initialize_database
 from routes import blueprints
+from routes.score_distribution_histogram import ScoreDistributionHistogram
+
 
 app = Flask(__name__)
 
@@ -11,10 +13,17 @@ initialize_database()
 for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
+
+
 # ホームページのルート
 @app.route('/')
 def index():
-    return render_template('index.html')
+    counts = [1, 2, 3, 4, 5, 600]
+    histogram = ScoreDistributionHistogram()
+    histogram.create(counts)
+    return render_template("index.html")
+
+
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
