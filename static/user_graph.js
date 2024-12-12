@@ -1,6 +1,6 @@
 const credit_summary_chart = document.getElementById('credit_summary_chart');
 
-    fetch('/api/month_total_by_product')//後で聞いて直す
+    fetch('/api/credit_summary_bar')
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -11,26 +11,25 @@ const credit_summary_chart = document.getElementById('credit_summary_chart');
             labels: data.labels,
             datasets: [{
               axis: 'y',
-              label: '売り上げ(円)',
+              label: '獲得単位',
               data: data.data,
               fill: false,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
+                'rgba(255, 99, 132, 0.5)',  // 半透明の赤
+                'rgba(54, 162, 235, 0.5)',  // 半透明の青
+                'rgba(255, 206, 86, 0.5)',  // 半透明の黄色
+                'rgba(75, 192, 192, 0.5)',  // 半透明の緑
+                'rgba(153, 102, 255, 0.5)', // 半透明の紫
+                'rgba(255, 159, 64, 0.5)'   // 半透明のオレンジ
               ],
               borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)'
+                'rgb(0, 128, 255)',  // 青
+                'rgb(0, 255, 128)',  // 緑
+                'rgb(255, 128, 0)',  // オレンジ
+                'rgb(128, 0, 255)',  // 紫
+                'rgb(255, 0, 128)',  // ピンク
+                'rgb(128, 255, 0)',  // 黄緑
+                'rgb(0, 255, 255)'   // シアン
               ],
               borderWidth: 1
 
@@ -51,7 +50,7 @@ const credit_summary_chart = document.getElementById('credit_summary_chart');
 
     const credit_ranking_chart = document.getElementById('credit_ranking_chart');
 
-    fetch('/api/user_ranking')//後で聞いて直す
+    fetch('/api/credit_summary_ranking')//後で聞いて直す
       .then(res => res.json())
       .then(data => {
         console.log(data)
