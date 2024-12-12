@@ -38,4 +38,4 @@ def edit(food_id):
         food.save()
         return redirect(url_for('food.list'))
 
-    return render_template('food_edit.html', food = food)
+    return render_template('food_edit.html', food=food)
