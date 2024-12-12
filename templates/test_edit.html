@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>テスト点数編集</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>テスト点数編集</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('test.list') }}">テスト点数一覧</a></li>
+        <li>テスト点数編集</li>
+    </ul>
+
+    <form action="{{ url_for('test.edit', test_id=test.id) }}" method="post">
+        <label>名前: 
+            <select name="user_id" required>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+            <br>
+        </label>
+        <label>国語: 
+            <input type="text" name="japanese" value="{{ test.japanese }}" required min="0" max="100">
+        </label>
+        <label>数学: 
+            <input type="text" name="math" value="{{ test.math }}" required min="0" max="100">
+        </label>
+        <label>英語: 
+            <input type="text" name="english" value="{{ test.english }}" required min="0" max="100">
+        </label>
+
+        <button type="submit">保存</button>
+    </form>
+</body>
+</html>
