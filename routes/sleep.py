@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models import Sleep, User
 
+
 # Blueprintの作成
 sleep_bp = Blueprint('sleep', __name__, url_prefix='/sleeps')
 
