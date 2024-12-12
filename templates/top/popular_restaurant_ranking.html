@@ -1,11 +1,21 @@
 <section>人気な店ランキング
-
-    {% for restaurant in restaurant_ranking %}
-    <div>
-        <p>{{ loop.index }}位</p>
-        <p>店舗名 : {{ restaurant.restaurant.name }}</p>
-        <p>評価平均 : {{ restaurant.evaluation }}</p>
-    </div>
-    {% endfor %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>順位</th>
+                <th>店舗名</th>
+                <th>評価平均</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for restaurant in restaurant_ranking %}
+            <tr>
+                <td>{{ loop.index }}位</td>
+                <td>{{ restaurant.restaurant.name }}</td>
+                <td>{{ restaurant.evaluation }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </section>
 
