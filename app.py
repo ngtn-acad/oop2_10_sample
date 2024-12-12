@@ -5,7 +5,7 @@ from routes import blueprints
 app = Flask(__name__)
 
 # データベースの初期化
-initialize_database()
+# initialize_database()
 
 # 各Blueprintをアプリケーションに登録
 for blueprint in blueprints:
