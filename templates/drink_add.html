@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ドリンクを追加</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+<body>
+    <h1>ドリンク追加</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('drink.list') }}">ドリンク一覧</a></li>
+        <li>ドリンクを追加</li>
+    </ul>
+
+    <form action="{{ url_for('drink.add') }}" method="post">
+        <label>ドリンク名: <input type="text" name="name" required></label><br>
+        <label>値段: <input type="number" step="1" name="price" required></label><br>
+        <button type="submit">追加</button>
+    </form>
+</body>
+</html>

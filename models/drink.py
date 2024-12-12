@@ -7,3 +7,5 @@ class Drink(Model):
 
     class Meta:
         database = db
+        
+    
