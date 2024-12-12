@@ -50,7 +50,7 @@ const credit_summary_chart = document.getElementById('credit_summary_chart');
 
     const credit_ranking_chart = document.getElementById('credit_ranking_chart');
 
-    fetch('/api/credit_summary_ranking')//後で聞いて直す
+    fetch('/api/credit_summary_ranking')
       .then(res => res.json())
       .then(data => {
         console.log(data)
