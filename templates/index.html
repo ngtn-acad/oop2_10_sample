@@ -12,5 +12,28 @@
       <li><a href="{{ url_for('weapon.list') }}">武器リスト</a></li>
       <li><a href="{{ url_for('quest.list') }}">クエストリスト</a></li>
     </ul>
+
+    <h2>クエスト受注数ランキング</h2>
+    <table>
+
+        <thead>
+            <tr>
+                <th>順位</th>
+                <th>キャラクター名</th>
+                <th>クエスト受注数</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for character in ranking %}
+             <tr>
+                <td>{{ loop.index }}位</td>
+                <td>{{ character.name }}</td>
+                <td>{{ character.quest_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
 </body>
 </html>
