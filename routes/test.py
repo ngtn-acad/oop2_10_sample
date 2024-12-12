@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for,Response
+import json
 from models import Test, User # Test、User、Product モデルをインポート
 from peewee import DoesNotExist
 
@@ -10,6 +11,12 @@ def list():
     tests = Test.select()
     return render_template('test_list.html', title='テストデータ一覧', items=tests)
 
+# @test_bp.route('/data')
+# def test_data():
+#     tests = Test.select()
+#     test_data = [{'user': test.user.name, 'score': test.japanese + test.math + test.english} for test in tests]
+#     return Response(json.dumps(test_data), mimetype='application/json')
+
 @test_bp.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
@@ -20,16 +27,6 @@ def add():
         japanese = request.form['japanese']  # 日本語の点数
         math = request.form['math']
         english = request.form['english']
-        """
-        print(f"Received test_id: {test_id}")  # 送信されたtest_idをログに出力
-
-
-        # Productテーブルから指定されたtest_idの教科を取得
-        selected_test = Test.get_or_none(Test.id == test_id)
-        if not selected_test.name:
-            return redirect(url_for('test.list'))
-        print(f"Selected test: {selected_test.name}")  # 選択された教科をログに出力
-        """
         # Testデータの作成
         Test.create(user_id=user_id, japanese=japanese, math=math , english=english)
         return redirect(url_for('test.list'))  # テストデータ一覧ページにリダイレクト

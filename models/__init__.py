@@ -1,8 +1,6 @@
 from peewee import SqliteDatabase
 from .db import db
 from .user import User
-from .product import Product
-from .order import Order
 from .test import Test
 from .sleep import Sleep
 
@@ -10,8 +8,6 @@ from .sleep import Sleep
 # モデルのリストを定義しておくと、後でまとめて登録しやすくなります
 MODELS = [
     User,
-    Product,
-    Order,
     Test,
     Sleep,
 ]
