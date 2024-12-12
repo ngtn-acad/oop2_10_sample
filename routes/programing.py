@@ -13,7 +13,6 @@ def list():
 
 @programing_bp.route('/add', methods=['GET', 'POST'])
 def add():
-    
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
         name = request.form['name']
