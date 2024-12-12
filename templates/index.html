@@ -24,6 +24,7 @@
     <body>
     <h2>月毎の貸し出し冊数</h2>
     <ccanvas id="book_count" width="400" heig="200"></ccanvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Pythonから受け取るデータ
         const dataX = {{ month | tojson }};
@@ -49,14 +50,14 @@
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'X-axis'
+                            text: '月'
                         }
                     },
                     y: {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Y-axis'
+                            text: '貸出冊数'
                         }
                     }
                 }
