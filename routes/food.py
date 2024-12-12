@@ -21,7 +21,7 @@ def add():
         name = request.form['name']
         price = request.form['price']
         Food.create(name=name, price=price)
-        return redirect(url_for('customer.list'))
+        return redirect(url_for('food.list'))
     
     return render_template('food_add.html')
 
