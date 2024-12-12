@@ -11,6 +11,9 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='index.css') }}"
     />
+     <!-- MapLibre GL JS -->
+     <script src="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.js"></script>
+     <link href="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.css" rel="stylesheet" />
   </head>
   <body>
     <aside>
@@ -23,9 +26,10 @@
 
     <main>
       {% include "top/popular_restaurant_ranking.html" %}
-      {% include "top/restaurant_rating_score.html" %}
+      {% include "top/restaurant_score_ranking.html" %}
       {% include "top/restaurant_map.html" %}
       {% include "top/most_eaten_ranking.html" %}
     </main>
   </body>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
 </html>
