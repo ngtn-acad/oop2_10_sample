@@ -3,16 +3,9 @@ from models import initialize_database
 from routes import blueprints
 from routes.graphs import fetch_sleep_test_data, create_graph
 
-
 import plotly.graph_objects as go
 
-# from routes.sleep import sleep_bp
-# from routes.test import test_bp
-# from routes.graph import graph_bp
-
-
 app = Flask(__name__)
-
 
 # データベースの初期化
 initialize_database()

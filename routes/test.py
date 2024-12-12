@@ -11,11 +11,6 @@ def list():
     tests = Test.select()
     return render_template('test_list.html', title='テストデータ一覧', items=tests)
 
-# @test_bp.route('/data')
-# def test_data():
-#     tests = Test.select()
-#     test_data = [{'user': test.user.name, 'score': test.japanese + test.math + test.english} for test in tests]
-#     return Response(json.dumps(test_data), mimetype='application/json')
 
 @test_bp.route('/add', methods=['GET', 'POST'])
 def add():

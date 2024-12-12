@@ -33,16 +33,6 @@ def fetch_sleep_test_data():
         duration = abs(start - end)
 
         
-        
-        # start = datetime.datetime.strptime(start, '%H:%M')
-        # end = datetime.datetime.strptime(end, '%H:%M')
-        # start = start.strftime('%H:%M')
-        # end = end.strftime('%H:%M')
-        
-        # start = int(start[:2])*60 + int(start[3:])
-        # end = int(end[:2])*60 + int(end[3:])
-        # duration = abs(start-end)
-        # print(duration)
         sleep_dif.append(duration)
         
 

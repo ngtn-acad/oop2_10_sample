@@ -15,12 +15,6 @@ def list():
 
     return render_template('sleep_list.html', title='睡眠', items=sleeps)
 
-# @sleep_bp.route('/data')
-# def sleep_data():
-#     sleeps = Sleep.select()
-#     sleep_data = [{'user': sleep.user.name, 'start': sleep.start, 'end': sleep.end} for sleep in sleeps]
-#     return Response(json.dumps(sleep_data), mimetype='application/json')
-
 
 @sleep_bp.route('/add', methods=['GET', 'POST'])
 def add():
