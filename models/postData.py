@@ -7,7 +7,7 @@ from .article import Article
 
 class PostData(Model):
     user = ForeignKeyField(User, backref='articles')
-    title = CharField()
+    article = ForeignKeyField(Article, backref='articles')
     tag = ForeignKeyField(Tag, backref='tags')
     created_at = DateTimeField()
     
