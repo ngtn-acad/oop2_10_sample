@@ -8,12 +8,38 @@
 </head>
 
 <body>
-  <h1>index</h1>
-  <ul>
-    <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
-    <li><a href="{{ url_for('appointment.list') }}">予約希望へ</a></li>
-    <li><a href="{{ url_for('jibyou.list') }}">持病リスト</a></li>
-    <li><a href="{{ url_for('medical_condition.list') }}">症状リスト</a></li>
+  <div class="top">
+    <h1>オブジェクト演習</h1>
+    <div>group13</div>
+  </div>
+
+
+  <div class="bookingList">
+    <ul class="userList">
+      <li style="font-size: 25px;">患者一覧</li>
+      <li><a href="{{ url_for('user.list') }}">患者一覧</a></li>
+      <li><a href="{{ url_for('user.add') }}">新規患者登録</a></li>
+
+    </ul>
+
+    <ul class="userList">
+      <li style="font-size: 25px;">予約リスト</li>
+      <li><a href="{{ url_for('appointment.list') }}">予約一覧</a></li>
+      <li><a href="{{ url_for('appointment.add') }}">予約希望へ</a></li>
+    </ul>
+    
+    <ul class="userList">
+      <li style="font-size: 25px;">症状リスト</li>
+      <li><a href="{{ url_for('jibyou.list') }}">持病リスト</a></li>
+      <li><a href="{{ url_for('jibyou.add') }}">持病の追加</a></li>
+      <li><a href="{{ url_for('medical_condition.list') }}">症状リスト</a></li>
+      <li><a href="{{ url_for('medical_condition.add') }}">症状の追加</a></li>
+    </ul>
+    
+  </div>
+  
+
+    
   </ul>
 </body>
 
