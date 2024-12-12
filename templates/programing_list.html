@@ -19,7 +19,7 @@
         <tbody>
             {% for programing in items %}
             <tr>
-                <td><a href="#">編集</a></td>
+                <td><a href="{{ url_for('programing.edit' , programing_id=programing.id ) }}">編集</a></td>
                 <td>{{ programing.user_id }}</td>
                 <td>{{ programing.like }}</td>
                 <td>{{ programing.language }}</td>
