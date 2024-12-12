@@ -30,10 +30,9 @@ def edit(commute_id):
         return redirect(url_for('commute.list'))
 
     if request.method == 'POST':
-        way = request.form['way']
-        time = request.form['time']
+        commute.way = request.form['way']
+        commute.time = request.form['time']
         commute.save()
         return redirect(url_for('commute.list'))
 
-    commutes = Commute.select()
-    return render_template('commute_edit.html', commute=commute, commutes=commutes)
+    return render_template('commute_edit.html', commute=commute)
