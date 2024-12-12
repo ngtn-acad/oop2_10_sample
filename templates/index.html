@@ -3,14 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>データ一覧</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base-style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
   </head>
   <body>
-    <h1>index</h1>
-    <ul>
-      <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
-      <li><a href="{{ url_for('restaurant.list')}}">お店リスト</a></li>
-      <li><a href="{{ url_for('food.list')}}">食べたものリスト</a></li>
-    </ul>
+    <aside>
+      <ul>
+        <li><a href="{{ url_for('user.list') }}">ユーザーリスト</a></li>
+        <li><a href="{{ url_for('restaurant.list')}}">お店リスト</a></li>
+        <li><a href="{{ url_for('food.list')}}">食べたものリスト</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      {% include "top/popular_restaurant_ranking.html" %}
+      {% include "top/restaurant_rating_score.html" %}
+      {% include "top/restaurant_map.html" %}
+      {% include "top/most_eaten_ranking.html" %}
+    </main>
   </body>
 </html>
