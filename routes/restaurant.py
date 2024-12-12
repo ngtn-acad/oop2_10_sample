@@ -23,7 +23,7 @@ def add():
         name = request.form["name"]
         address = request.form["address"]
         coordinates = get_coordinates(address)
-        print(coordinates)
+
         if not coordinates:
             return render_template(
                 "restaurant_add.html", error="住所が見つかりませんでした"
