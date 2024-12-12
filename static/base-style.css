@@ -47,3 +47,7 @@ th {
 .breadcrumb li:nth-last-child()::after {
   content: "";
 }
+
+.error {
+  color: red;
+}
