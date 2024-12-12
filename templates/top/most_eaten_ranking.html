@@ -1,1 +1,24 @@
-<section>食べた回数ランキング</section>
+<section class="most_eaten_ranking">
+    <h2>食べた回数ランキング</h2>
+
+    <div class="ranking">
+        <div class="header">
+            <div class="cell">順位</div>
+            <div class="cell">回数</div>
+            <div class="cell">食べ物</div>
+            <div class="cell">レストラン</div>
+        </div>
+        {% for food in foods %}
+        <div class="card">
+            <div class="cell">{{loop.index}}</div>
+            <div class="cell">{{food.eaten_num}}</div>
+            <div class="cell">{{food.food}}</div>
+            <div class="cell">{{food.restaurant}}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</section>
+
+<!-- 同じ店で同じ名前TOP5 -->

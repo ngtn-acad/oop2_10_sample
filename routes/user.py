@@ -4,7 +4,6 @@ from models import User
 # Blueprintの作成
 user_bp = Blueprint("user", __name__, url_prefix="/users")
 
-
 @user_bp.route("/")
 def list():
 
