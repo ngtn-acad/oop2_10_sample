@@ -1,7 +1,5 @@
-from flask import Blueprint, render_template, request, redirect, url_for,Response
-import json
+from flask import Blueprint, render_template, request, redirect, url_for
 from models import Test, User # Test、User、Product モデルをインポート
-from peewee import DoesNotExist
 
 test_bp = Blueprint('test', __name__, url_prefix='/test')
 

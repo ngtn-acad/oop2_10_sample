@@ -1,5 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for,Response 
-import json
+from flask import Blueprint, render_template, request, redirect, url_for
 from models import Sleep, User
 
 
