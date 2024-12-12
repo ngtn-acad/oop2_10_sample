@@ -21,6 +21,11 @@
                 {% endfor %}
             </select>
         </label><br>
+
+        <label>食べたもの: 
+            <input type="text" name="food_name" required>
+        </label><br>
+
         <label>レストラン: 
             <select name="restaurant_id" required>
                 {% for restaurant in restaurants %}

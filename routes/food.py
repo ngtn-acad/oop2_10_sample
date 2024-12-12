@@ -16,10 +16,11 @@ def list():
 def add():
     if request.method == 'POST':
         user_id = request.form['user_id']
+        food_name = request.form['food_name']
         restaurant_id = request.form['restaurant_id']
         time = datetime.now()
         evaluation = request.form['evaluation']
-        Food.create(user=user_id, restaurant=restaurant_id, time=time,evaluation=evaluation)
+        Food.create(user=user_id, food=food_name,restaurant=restaurant_id, time=time,evaluation=evaluation)
         return redirect(url_for('food.list'))
     
     users = User.select()
@@ -34,6 +35,7 @@ def edit(food_id):
     
     if request.method == "POST":
         food.user = request.form["user_id"]
+        food.food = request.form["food_name"]
         food.restaurant = request.form["restaurant_id"]
         food.time = datetime.now()
         food.evaluation = request.form["evaluation"]
