@@ -32,3 +32,22 @@ main {
 #map {
   height: 50vh;
 }
+
+
+.restaurant_score_ranking .card{
+  width: 150px;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.restaurant_score_ranking .ranking{
+  display: flex;
+  gap: 10px;
+}
+
+.restaurant_score_ranking .index{
+  font-size: 40px;
+  
+}
