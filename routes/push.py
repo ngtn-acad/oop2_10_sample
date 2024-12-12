@@ -22,7 +22,7 @@ def add():
         article = Article.get_or_none(Article.id == article_id)
         tag = article.tag
         created_at = datetime.now()
-        PostData.create(user=user_id,  title=article.title,tag = tag , created_at=created_at)
+        PostData.create(user=user_id,  article=article, tag = tag , created_at=created_at)
         return redirect(url_for('push.list'))
     
     users = User.select()
@@ -38,10 +38,10 @@ def edit(postData_id):
 
     if request.method == 'POST':
         article.user = request.form['user_id']
-        article.title = request.form['title']
+        article.article = request.form['title']
         article.save()
         return redirect(url_for('push.list'))
 
     users = User.select()
     articles = Article.select()
-    return render_template('order_edit.html', articles = articles, users=users)
+    return render_template('order_edit.html', articles = articles, users=users , article=article)
