@@ -18,6 +18,7 @@
             <tr>
                 <th>&nbsp;</th>
                 <th>ユーザー</th>
+                <th>食べたもの</th>
                 <th>レストラン</th>
                 <th>評価</th>
                 <th>注文時間</th>
@@ -28,6 +29,7 @@
             <tr>
                 <td><a href="{{ url_for('food.edit', food_id=food.id) }}">編集</a></td>
                 <td>{{ food.user.name }}</td>
+                <td>{{ food.food }}</td>
                 <td>{{ food.restaurant.name }}</td>
                 <td>{{ food.evaluation }}</td>
                 <td>{{ food.time }}</td>
