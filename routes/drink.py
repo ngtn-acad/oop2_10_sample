@@ -19,7 +19,7 @@ def add():
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
         name = request.form['name']
-        price = request.form['prince']
+        price = request.form['price']
         Drink.create(name=name, price=price)
         return redirect(url_for('drink.list'))
     

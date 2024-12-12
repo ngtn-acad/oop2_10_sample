@@ -15,7 +15,7 @@
 
     <form action="{{ url_for('drink.edit', drink_id=drink.id) }}" method="post">
         <label>ドリンク名: <input type="text" name="name" value="{{ drink.name }}" required></label><br>
-        <label>値段: <input type="number" step="1" name="price" value="{{ drink.price}}" required></label><br>
+        <label>値段: <input type="number" step="1" name="price" value="{{drink.price}}" required></label><br>
         <button type="submit">保存</button>
     </form>
 </body>
