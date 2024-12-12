@@ -26,7 +26,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
             // Pythonから受け取るデータ
-            const monthData = {{ month_data | tojson(default=[]) }};
+            const monthData = {{ month_data if month_data else '[]' | tojson }};
             
             // データを分解
             const dataX = monthData.map(item => item.month); // 月
