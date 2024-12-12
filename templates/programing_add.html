@@ -9,7 +9,7 @@
     <h1>アンケート回答</h1>
     <form action="{{ url_for('programing.add') }}" method="post">
         <label>学籍番号: 
-            <input type="text" name="number" required>
+            <input type="text" name="user_id" required>
         </label><br>
         <label>プログラミング好き？（1 : 嫌い, 5 : 好き）: 
             <select name="like">

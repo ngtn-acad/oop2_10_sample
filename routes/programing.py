@@ -15,10 +15,12 @@ def list():
 def add():
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
-        name = request.form['name']
+        # 学籍番号の取得
+        print(request.form)
+        user_id = request.form['user_id']
         like = request.form['like']
         language = request.form['language']
-        Programing.create(name=name, like=like, language=language)
+        Programing.create(user_id=user_id, like=like, language=language)
         return redirect(url_for('programing.list'))
     
     return render_template('programing_add.html')

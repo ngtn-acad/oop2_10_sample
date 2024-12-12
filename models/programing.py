@@ -2,7 +2,7 @@ from peewee import Model, CharField, IntegerField
 from .db import db
 
 class Programing(Model):
-    number = CharField()
+    user_id = CharField()
     like = IntegerField()
     language = CharField()
 
