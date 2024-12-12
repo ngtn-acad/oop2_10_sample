@@ -1,7 +1,10 @@
-from 
-class Programing() :
-    number = user_id
-    programing_like = like.value
-    language = language.value
+from peewee import Model, CharField, IntegerField
+from .db import db
+
+class Product(Model):
+    number = CharField()
+    like = IntegerField()
+    language = CharField()
+
     class Meta:
         database = db
