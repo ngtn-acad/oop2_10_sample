@@ -1,0 +1,13 @@
+<section class="restaurant_score_ranking">
+    <h2>店別評価数ランキング</h2>
+
+    <div class="ranking">
+        {% for restaurant in score_ranking %}
+        <div class="card">
+            <p class="index">{{loop.index}}位</p>
+            <p>{{restaurant.restaurant.name}}</p>
+            <p>{{restaurant.evaluation}}回</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>

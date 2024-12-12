@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 from models import initialize_database
 from routes import blueprints
+from peewee import fn
+from models import Food
 
 app = Flask(__name__)
 
@@ -14,7 +16,12 @@ for blueprint in blueprints:
 # ホームページのルート
 @app.route('/')
 def index():
-    return render_template('index.html')
+    score_ranking = Food \
+        .select(Food.restaurant,fn.COUNT(Food.evaluation)) \
+        .group_by(Food.restaurant) \
+        .order_by(fn.COUNT(Food.evaluation).desc()) \
+        .limit(5)
+    return render_template('index.html',score_ranking = score_ranking)
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
