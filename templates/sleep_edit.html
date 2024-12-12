@@ -21,8 +21,8 @@
                 {% endfor %}
             </select>
         <br>
-        <label>入眠時間スタート: <input type="number" name="start" value="{{ sleep.start }}" required></label><br>
-        <label>起きた時間: <input type="number" name="end" value="{{ sleep.end }}" required></label><br>
+        <label>入眠時間: <input type="time" name="start" value="{{ sleep.start }}" required></label><br>
+        <label>起きた時間: <input type="time" name="end" value="{{ sleep.end }}" required></label><br>
         <button type="submit">保存</button>
     </form>
 </body>
