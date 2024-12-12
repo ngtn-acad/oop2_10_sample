@@ -13,14 +13,14 @@ def list():
 
 @commute_bp.route('/add', methods=['GET', 'POST'])
 def add():
+    # POSTで送られてきたデータは登録
     if request.method == 'POST':
         way = request.form['way']
         time = request.form['time']
-        Commute.create(way=way, time=time)
+        Commute.create(way=way,time=time)
         return redirect(url_for('commute.list'))
-    
-    users = User.select()
-    return render_template('commute_add.html', users=users)
+
+    return render_template('commute_add.html')
 
 
 @commute_bp.route('/edit/<int:commute_id>', methods=['GET', 'POST'])
@@ -35,5 +35,5 @@ def edit(commute_id):
         commute.save()
         return redirect(url_for('commute.list'))
 
-    users = User.select()
-    return render_template('commute_edit.html', commute=commute, users=users)
+    commutes = Commute.select()
+    return render_template('commute_edit.html', commute=commute, commutes=commutes)
