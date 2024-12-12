@@ -25,5 +25,5 @@ if __name__ == "__main__":
     counts = [3, 9, 4, 4, 5, 1]
 
     # 表示及び出力
-    histogram = ScoreDistributionHistogram.create(counts)
-    histogram
+    histogram = ScoreDistributionHistogram()
+    histogram.create(counts)
