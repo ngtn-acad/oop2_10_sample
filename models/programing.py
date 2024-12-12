@@ -1,7 +1,7 @@
 from peewee import Model, CharField, IntegerField
 from .db import db
 
-class Product(Model):
+class Programing(Model):
     number = CharField()
     like = IntegerField()
     language = CharField()
