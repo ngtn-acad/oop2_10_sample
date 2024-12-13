@@ -11,9 +11,14 @@ initialize_database()
 for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
+def get_data():
+    data = {}
+    return data
+
 # ホームページのルート
 @app.route('/')
 def index():
+    data = get_data()  # データを取得
     return render_template('index.html')
 
 if __name__ == '__main__':
