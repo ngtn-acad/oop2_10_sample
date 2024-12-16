@@ -9,15 +9,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1 class="title">冒険者協会</h1>
-        <a class="user-list" href="{{ url_for('user.list') }}">冒険者リスト</a>
-        <a class="item-list" href="{{ url_for('item.list') }}">装備リスト</a>
-        <a class="status-list" href="{{ url_for('status.list') }}">総合ステータスリスト</a>
+        <a class="menu user-list" href="{{ url_for('user.list') }}">冒険者リスト</a>
+        <a class="menu item-list" href="{{ url_for('item.list') }}">装備リスト</a>
+        <a class="menu status-list" href="{{ url_for('status.list') }}">総合ステータスリスト</a>
     </header>
+    
+    
     <main>
 
-        <div id="chart-container">
+        <div class="chart-container">
             
             <div class="chart_area">
                 aaa

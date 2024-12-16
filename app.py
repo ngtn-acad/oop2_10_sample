@@ -33,7 +33,7 @@ def index():
             "labels": [name for name in chara_unique_sorted], # 武器の名前
             "datasets": [
                 {
-                    "label": "power",
+                    "label": "使用率",
                     "data": chara_usagerate_sorted,  # 武器の使用率
                 }
             ]
