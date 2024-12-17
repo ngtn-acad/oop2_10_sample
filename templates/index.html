@@ -23,8 +23,64 @@
       <canvas id="song_counts_chart" width="400" height="200"></canvas>
     </section>
 
+    <section class="score_ranking">
+      <h3>点数ランキング（TOP5）</h3>
+        <table id="rankingTable">
+          <thead>
+            <tr>
+              <th>順位</th>
+              <th>点数</th>
+              <th>曲名</th>
+              <th>チャレンジャー名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JavaScriptでデータを埋め込む -->
+          </tbody>
+        </table>
+      </canvas>
+    </section>
     <script>
       // ここに JavaScript のコードを記述！
+      
+      
+      
+      const scores = {{ top_score_songs|tojson }};
+
+      //debug用
+      //const scores=[
+      //  ["あい","s",93],
+      //  ["あい","s",9],
+      //  ["あい","s",78],
+      //  ["あい","s",54],
+      //  ["あい","s",88]
+      //];
+
+      // テーブルのtbody要素を取得
+      const tbody = document.querySelector("#rankingTable tbody");
+
+      //ソート
+      cores = scores.sort( ( a, b ) => {
+	      return b[0] - a[0]
+      } );
+
+      // テーブルにデータを表示
+      tbody.innerHTML = ""; // 既存の内容をクリア
+      count = 1;//順位のカウント
+      scores.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${count}位</td>
+          <td>${row[2]}</td>
+          <td>${row[1]}</td>
+          <td>${row[0]}</td>
+        `;
+        count++;
+        tbody.appendChild(tr);
+      });
+      
+      
+      
       // Pythonから渡されたデータをJavaScriptに適用
       const songNames = {{ song_names|tojson }}; // 曲名
       const songCounts = {{ song_counts|tojson }}; // 出現回数

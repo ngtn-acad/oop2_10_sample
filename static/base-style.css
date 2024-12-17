@@ -23,6 +23,12 @@ th {
   background-color: #f4f4f4;
 }
 
+#rankingTable{
+  width: 40%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
 .breadcrumb {
   padding: 0;
   margin-bottom: 2rem;
