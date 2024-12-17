@@ -2,6 +2,9 @@ from flask import Flask, render_template
 from models import initialize_database
 from routes import blueprints
 
+from peewee import fn
+from models import Score
+
 app = Flask(__name__)
 
 # データベースの初期化
@@ -11,15 +14,26 @@ initialize_database()
 for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
-def get_data():
-    data = {}
-    return data
-
 # ホームページのルート
 @app.route('/')
 def index():
-    data = get_data()  # データを取得
-    return render_template('index.html')
+    # 上位5位の得点を取得
+    top_scores = (
+        Score
+        .select(Score.song, Score.challenger, fn.MAX(Score.score).alias('score'))
+        .group_by(Score.song)
+        .order_by(fn.MAX(Score.score).desc())
+        .limit(5)
+    )
+
+    top_score_songs = []
+
+    # データの整形
+    for s in top_scores:
+        temp = [s.challenger.name, s.song.song, s.score]
+        top_score_songs.append(temp)
+
+    return render_template('index.html', top_score_songs=top_score_songs)
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
