@@ -16,6 +16,25 @@ for blueprint in blueprints:
 # ホームページのルート
 @app.route('/')
 def index():
+  
+    # トップ5の得点を取得
+    top_scores = (
+        Score
+        .select(Score.song, Score.challenger, fn.MAX(Score.score).alias('score'))
+        .group_by(Score.song)
+        .order_by(fn.MAX(Score.score).desc())
+        .limit(5)
+    )
+
+    top_score_songs = []
+
+    # データの整形
+    for s in top_scores:
+        temp = [s.challenger.name, s.song.song, s.score]
+        top_score_songs.append(temp)
+
+        
+        
     # 曲の出現回数を集計し、上位5曲を取得
     top_songs = (
         Score
@@ -32,7 +51,10 @@ def index():
     # テンプレートにデータを渡してレンダリング
     return render_template("index.html", 
                            song_names=song_names, 
-                           song_counts=song_counts)
+                           song_counts=song_counts,
+                           top_score_songs=top_score_songs,
+                          )
+  
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
