@@ -18,12 +18,8 @@
       <li><a href="{{ url_for('song.list') }}">ソングリスト</a></li>
       <li><a href="{{ url_for('score.list') }}">スコアリスト</a></li>
     </ul>
-    <section class="song_counts">
-      <h3>最も歌われた曲（TOP5）</h3>
-      <canvas id="song_counts_chart" width="400" height="200"></canvas>
-    </section>
-
-    <section class="score_ranking">
+	  
+	<section class="score_ranking">
       <h3>点数ランキング（TOP5）</h3>
         <table id="rankingTable">
           <thead>
@@ -40,6 +36,13 @@
         </table>
       </canvas>
     </section>
+
+	  
+    <section class="song_counts">
+      <h3>最も歌われた曲（TOP5）</h3>
+      <canvas id="song_counts_chart" width="400" height="200"></canvas>
+    </section>
+	  
     <script>
       // ここに JavaScript のコードを記述！
       
