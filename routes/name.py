@@ -47,11 +47,21 @@ def edit(name_id):
 # 名前による判別
 def area(phone, num):
     match phone:
-        case "100":
+        case _ if 110<=int(phone)<250:
+            update_area = Prefecture.get(Prefecture.area=='touhoku')
+        case _ if 270<=int(phone)<500:
             update_area = Prefecture.get(Prefecture.area=='kanto')
-        case "111":
-            update_area = Prefecture.get(Prefecture.area=='kinki')
+        case _ if 250<=int(phone)<270 or 520<=int(phone)<590 or 760<=int(phone)<780:
+            update_area = Prefecture.get(Prefecture.area=='chubu')
+        case _ if 590<=int(phone)<760 or 780<=int(phone)<800:
+            update_area=Prefecture.get(Prefecture.area=='kinki')
+        case _ if 800<=int(phone)<870:
+            update_area=Prefecture.get(Prefecture.area=='chugoku')
+        case _ if 870<=int(phone)<900:
+            update_area=Prefecture.get(Prefecture.area=='shikoku')
+        case _ if 900<=int(phone):
+            update_area=Prefecture.get(Prefecture.area=='kyushu')
         case _:
-            update_area = Prefecture.get(Prefecture.area=='other')
+            update_area=Prefecture.get(Prefecture.area=='other')
     update_area.num = update_area.num + num
     update_area.save() 
