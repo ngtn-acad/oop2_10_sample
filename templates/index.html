@@ -35,6 +35,10 @@
       <li><a href="{{ url_for('medical_condition.list') }}">症状リスト</a></li>
       <li><a href="{{ url_for('medical_condition.add') }}">症状の追加</a></li>
     </ul>
+
+      <!-- 変更ここから -->
+      <h1>症状の統計</h1>
+      <div id="graph">{{ graph | safe }}</div>
     
   </div>
   

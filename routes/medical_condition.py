@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models.medical_condition import MedicalCondition
 from models.user import User
+import matplotlib.pyplot as plt
 
 medical_condition_bp = Blueprint('medical_condition', __name__, url_prefix='/medical-conditions')
 
