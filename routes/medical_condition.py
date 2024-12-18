@@ -26,6 +26,7 @@ def list():
         if condition.other:
             conditions_dict[condition.user.id].append('other')
 
+
     return render_template('medical_condition_list.html', title='症状一覧', users=users, conditions=conditions_dict)
 
 @medical_condition_bp.route('/add', methods=['GET', 'POST'])
@@ -59,6 +60,7 @@ def edit(condition_id):
         condition.check = bool(request.form.get('dizziness'))
         condition.check = bool(request.form.get('other'))
         condition.save()
+
         return redirect(url_for('medical_condition.list'))
 
     condition_states = {
