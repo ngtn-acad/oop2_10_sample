@@ -4,22 +4,65 @@
     <meta charset="UTF-8" />
     <title>データ一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <h1>index</h1>
-    <ul>
-      <li>
-        <a href="{{ url_for('challenger.list') }}">チャレンジャーリスト</a>
-      </li>
-      <li><a href="{{ url_for('song.list') }}">ソングリスト</a></li>
-      <li><a href="{{ url_for('score.list') }}">スコアリスト</a></li>
-    </ul>
+    <main>
+      <section class="sidebar">
+        <h1>カラオケ管理</h1>
+          <menu>
+            <li>&nbsp;歌う人情報</li>
+            <li><a href="{{ url_for('challenger.add') }}">歌う人登録</a></li>
+            <li><a href="{{ url_for('challenger.list') }}">歌う人一覧</a></li>
 
+            <li>&nbsp;曲情報</li>
+            <li><a href="{{ url_for('song.add') }}">曲登録</a></li>
+            <li><a href="{{ url_for('song.list') }}">曲リスト</a></li>
+
+            <li>&nbsp;得点情報</li>
+            <li><a href="{{ url_for('score.add') }}">得点登録</a></li>
+            <li><a href="{{ url_for('score.list') }}">得点リスト</a></li>
+            <!-- <ul>
+              <li>
+                <a href="{{ url_for('challenger.list') }}">チャレンジャーリスト</a>
+              </li>
+              <li><a href="{{ url_for('song.list') }}">ソングリスト</a></li>
+              <li><a href="{{ url_for('score.list') }}">スコアリスト</a></li>
+            </ul> -->
+          </menu>
+      </section>
+
+      <section class="song_era">
+        <h3>年代割合</h3>
+        <canvas id = "song_era_chart"></canvas>
+      </section>
+
+    </main>
     <script>
-      // ここに JavaScript のコードを記述！
 
-
-  </script>
+      const ageLabels = {{ age_labels|safe }}; // 年齢ラベル
+      const ageCounts = {{ age_counts|safe }}; // 年齢カウント
+      //年齢円グラフ
+      let eraCtx = document.getElementById("song_era_chart");
+        let eraConfig = {
+          type: 'pie',
+          data: {
+            labels: ageLabels,
+            datasets: [{
+              label: '年代割合',
+              data: ageCounts,
+              backgroundColor: [
+                '#FF6F61', 
+                '#6B5B95', 
+                '#88B04B', 
+                '#F7CAC9', 
+                '#92A8D1', 
+              ]
+            }]
+          },
+        };
+        let eraChart = new Chart(eraCtx, eraConfig);
+    </script>
   </body>
 </html>
