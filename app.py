@@ -20,7 +20,7 @@ def index():
     # トップ5の得点を取得
     top_scores = (
         Score
-        .select(Score.song, Score.challenger, Score.score)
+        .select(Score.song, Score.challenger, fn.MAX(Score.score))
         .order_by(fn.MAX(Score.score).desc())
         .limit(5)
     )
