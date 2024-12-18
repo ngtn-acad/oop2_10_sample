@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from peewee import fn, Case
-from models import initialize_database, Score
+from peewee import fn
+from models import initialize_database, Challenger
 
 app = Flask(__name__)
 
@@ -10,34 +10,34 @@ initialize_database()
 # ホームページのルート
 @app.route('/')
 def index():
-    # 年代をカテゴリ
-    age_group = Case(
-        None,
-        (
-            (Score.age <= 10, "10代以下"),
-            ((Score.age >= 11) & (Score.age <= 20), "20代"),
-            ((Score.age >= 21) & (Score.age <= 30), "30代"),
-            ((Score.age >= 31) & (Score.age <= 40), "40代"),
-        ),
-        "50代以上"
+    # 年代別の人数を取得
+    age_list = (
+        Challenger
+        .select(Challenger.age, fn.COUNT(Challenger.id).alias('count'))
+        .group_by(Challenger.age)
     )
 
-    # 年代グループの出現回数を集計
-    age_counts = (
-        Score
-        .select(age_group.alias('age_group'), fn.COUNT(Score.id).alias('count'))
-        .group_by(age_group)
-        .order_by(fn.COUNT(Score.id).desc())
-    )
+    # 年代ラベル
+    age_labels = ['10代以下', '20代', '30代', '40代', '50代以上']
+    
+    # 初期化された年代別カウント
+    age_counts = [0, 0, 0, 0, 0]
 
-    # データを整形
-    age_labels = [entry.age_group for entry in age_counts]  # 年代グループ
-    counts = [entry.count for entry in age_counts]          # 出現回数
+    # 年代ごとに人数をカウント
+    for al in age_list:
+        if al.age <= 19:
+            age_counts[0] += al.count
+        elif al.age <= 29:
+            age_counts[1] += al.count
+        elif al.age <= 39:
+            age_counts[2] += al.count
+        elif al.age <= 49:
+            age_counts[3] += al.count
+        else:
+            age_counts[4] += al.count
 
-    # テンプレートにデータを渡してレンダリング
-    return render_template("index.html", 
-                           age_labels=age_labels, 
-                           counts=counts)
+    # データを整形してテンプレートに渡す
+    return render_template('index.html', age_labels=age_labels, age_counts=age_counts)
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
