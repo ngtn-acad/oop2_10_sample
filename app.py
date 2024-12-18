@@ -1,5 +1,6 @@
+import math
 from flask import Flask, render_template
-from models import initialize_database
+from models import initialize_database,Status
 from routes import blueprints
 
 app = Flask(__name__)
@@ -10,13 +11,10 @@ initialize_database()
 # 各Blueprintをアプリケーションに登録
 for blueprint in blueprints:
     app.register_blueprint(blueprint)
-
+    
 # ホームページのルート
 @app.route('/')
 def index():
-<<<<<<< Updated upstream
-    return render_template('index.html')
-=======
     # Statusデータベースを全て取得、格納
     sList = []
     for i in range(len(Status)):
@@ -94,7 +92,6 @@ def index():
     }
 
     return render_template('index.html', chara_use_data=chara_use_data, item_use_raito=item_use_raito)
->>>>>>> Stashed changes
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    app.run(port=8800,debug=True)
