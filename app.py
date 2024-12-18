@@ -21,7 +21,6 @@ def index():
     top_scores = (
         Score
         .select(Score.song, Score.challenger, Score.score)
-        .group_by(Score.song)
         .order_by(fn.MAX(Score.score).desc())
         .limit(5)
     )
